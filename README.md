@@ -26,7 +26,17 @@ Ruby on Rails を学ぶ皆様へ。
 
 ## 設計書
 
-<...>
+- TRailers_アプリケーション詳細設計<br>https://docs.google.com/spreadsheets/d/1nIap4ozZZPbuY8KsQUNegym8Btlm4B4d72xHm6EPrdg/edit?usp=sharing
+
+- TRailers_WBS<br>https://docs.google.com/spreadsheets/d/1xgrgv8g-M0PCkCizla8a4G9uXLrF-kxFQq_5jHq_52E/edit?usp=sharing
+
+- TRailers_データベース設計<br>https://docs.google.com/spreadsheets/d/1wALfpAW6Xrg7CgSO8vuDQblbhWuHeff6bcZzY2OarVA/edit?usp=sharing
+
+- TRailers画面遷移<br>https://drive.google.com/file/d/1PWxuPi_m9DW6HY3Ia8H1rlbqNBQTZY4b/view?usp=sharing
+
+- TRailers_ER<br>https://drive.google.com/file/d/1qzd2XnMXEJVW6jU1AjCB6c_HiwhK-iD1/view?usp=sharing
+
+- TRailersワイヤーフレーム<br>https://drive.google.com/file/d/1pYGHvAhzC8QgzAxkS2BH2Wn__lT-1tlO/view?usp=sharing
 
 ## チャレンジ要素一覧
 
