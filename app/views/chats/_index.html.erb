@@ -1,17 +1,14 @@
 
- <% chats.each do |chat| %> 
+ <% chats.each do |chat| %>
   <% if chat.user_id == current_user.id %>
   <div class="destroy_test">
   <tbody>
     <tr>
       <th>
-
-      <div id="chat_destroy_<%= @chat.id %>">
+      <div id="<%= chat.id %>">
         <p style="text-align: left;"><%= chat.message %></p>
+        <%= link_to 'Destroy', chat_destroy_path(chat), method: :delete, remote: true %>
       </div>
-        
-
-         <%= link_to 'Destroy', chat_destroy_path(chat), method: :delete, remote: true %>
       </th>
       <th></th>
     </tr>
