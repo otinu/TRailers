@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+
+  def new
+    @new_post = Post.new
+  end
+
   def show
-@post = Post.joins(:user).find(params[:id])
-end
+   @post = Post.find(params[:id])
+  end
 
 def index
 @posts = Post.all
@@ -11,9 +16,9 @@ end
 def create
 post = Post.new(post_params)
 post.user_id = current_user.id    # joinsを使わなくとも、current_userが活用できる場合はこのような方法も可
-if book.save
+if post.save
 flash[:notice] = "successfully!"
-redirect_to book_path(post.id)
+redirect_to user_path(current_user)
 else
 flash[:alert] = "error / can't be blank or over 200words"
 flash[:notice] = "can't be blank"

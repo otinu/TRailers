@@ -1,2 +1,7 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
+
+<li><%= link_to '投稿者ページへ移動する', user_path(@post.user.id),class: 'fas fa-book-open nav-link text-light'%></li>
+<li><%= link_to '投稿者とチャットする', chat_path(@post.user.id),class: 'fas fa-book-open nav-link text-light'%></li>
+
+
