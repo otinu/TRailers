@@ -1,1 +1,2 @@
-$('#chat_destroy_<%= @chat.id %>').html("<%= j(render partial: 'chats/index', locals: {chats: @chats}) %>");
+$('#<%= @chat.id %>').remove();
+
