@@ -1,0 +1,30 @@
+
+ <% chats.each do |chat| %> 
+  <% if chat.user_id == current_user.id %>
+  <div class="destroy_test">
+  <tbody>
+    <tr>
+      <th>
+
+      <div id="chat_destroy_<%= @chat.id %>">
+        <p style="text-align: left;"><%= chat.message %></p>
+      </div>
+        
+
+         <%= link_to 'Destroy', chat_destroy_path(chat), method: :delete, remote: true %>
+      </th>
+      <th></th>
+    </tr>
+  </tbody>
+  <% else %>
+  <tbody>
+    <tr>
+      <th></th>
+      <th>
+        <p style="text-align: right;"><%= chat.message %></p>
+      </th>
+    </tr>
+  </tbody>
+  </div>
+  <% end %>
+<% end %>
