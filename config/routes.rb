@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'chat/:id' => 'chats#show', as: 'chat' #URLを単数形の「chat」にしたいため、記述。
+  delete 'chat/:id' => 'chats#destroy', as: 'chat_destroy'
   resources :chats, only: [:create]
 
 end

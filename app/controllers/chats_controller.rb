@@ -31,8 +31,10 @@ def create
 end
 
 def destroy
-@chat = current_user.chats.destroy
-binding.pry #作りかけ　少し調べたところ、チャットでも論理削除を使用する？
+@chat = Chat.find(params[:id])
+@room = @chat.room
+@chat.destroy
+@chats = @room.chats
 end
 
 =begin
