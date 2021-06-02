@@ -1,19 +1,51 @@
 class PostsController < ApplicationController
   def show
-  end
+@post = Post.joins(:user).find(params[:id])
+end
 
-  def index
-  end
+def index
+@posts = Post.all
+end
 
-  def create
-  end
 
-  def edit
-  end
+def create
+post = Post.new(post_params)
+post.user_id = current_user.id    # joinsを使わなくとも、current_userが活用できる場合はこのような方法も可
+if book.save
+flash[:notice] = "successfully!"
+redirect_to book_path(post.id)
+else
+flash[:alert] = "error / can't be blank or over 200words"
+flash[:notice] = "can't be blank"
+redirect_to posts_path
+end
+end
 
-  def update
-  end
+def edit
+@post = Post.find(params[:id])
+unless current_user.id == @post.user_id
+redirect_to posts_path
+end
+end
 
-  def destroy
-  end
+def update
+@post = Post.find(params[:id])
+if @post.update(post_params)
+redirect_to post_path(@pst), notice: "You have updated book successfully."
+else
+render "edit", notice: "error / can't be blank or over 200words"
+end
+end
+
+def destroy
+@post = Post.find(params[:id])
+@post.destroy
+redirect_to posts_path
+end
+
+private
+
+def post_params
+params.require(:post).permit(:title, :explanation, :user_id)
+end
 end
