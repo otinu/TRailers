@@ -1,0 +1,11 @@
+<h2>New book</h2>
+
+<%= form_with model: @new_post, local:true do |f| %>
+
+<h4>Title</h4>
+<%= f.text_field :title %>
+<h4>Opinion</h4>
+<%= f.text_area :explanation %>
+<br>
+<%= f.submit '投稿する' %>　<!-- ネーミング検討 -->
+<% end %>
