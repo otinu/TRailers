@@ -1,7 +1,32 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
 
-<li><%= link_to '投稿者ページへ移動する', user_path(@post.user.id),class: 'fas fa-book-open nav-link text-light'%></li>
-<li><%= link_to '投稿者とチャットする', chat_path(@post.user.id),class: 'fas fa-book-open nav-link text-light'%></li>
+<%= link_to '投稿者ページへ移動する', user_path(@post.user.id),class: 'fas fa-post-open nav-link text-dark'%>
+<%= link_to '投稿者とチャットする', chat_path(@post.user.id),class: 'fas fa-post-open nav-link text-dark'%>
 
+ <table class='table'>
+  <tr>
+   <td>
+     <%= link_to user_path(@post.user) do %>
+      <%= image_tag @post.post_file, alt: 'テスト画像' %><br>
+      <%= @post.user.name %>
+     <% end %>
+   </td>
+   <td><%= link_to @post.title, post_path(@post) %></td>
+   <td><%= @post.explanation %></td>
+   <td>
 
+   </td>
+   <td></td>
+   <td>
+     <% if @post.user_id == current_user.id %>
+       <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+     <% end %>
+   </td>
+   <td>
+     <% if @post.user_id == current_user.id %>
+      <%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%>
+     <% end %>
+   </td>
+  </tr>
+  </table>

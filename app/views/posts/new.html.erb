@@ -1,11 +1,13 @@
 <h2>New book</h2>
 
-<%= form_with model: @new_post, local:true do |f| %>
+<%= form_with model: @new_post, local:true do |form| %>
 
-<h4>Title</h4>
-<%= f.text_field :title %>
-<h4>Opinion</h4>
-<%= f.text_area :explanation %>
+<%= form.label :title %>
+<%= form.text_field :title %>
+<%= form.label :image %>
+<%= form.file_field :post_file %>
+<%= form.label :comment %>
+<%= form.text_area :explanation %>
 <br>
-<%= f.submit '投稿する' %>　<!-- ネーミング検討 -->
+<%= form.submit '投稿する' %>　<!-- ネーミング検討 -->
 <% end %>
