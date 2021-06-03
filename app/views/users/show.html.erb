@@ -35,7 +35,7 @@
 
 <!-- サインアップ直後はプロフィール画像がなく、エラー画面になってしまう状況を避けます -->
 <% begin %>
-<%= image_tag @user.profile_image, alt: 'テスト画像' %>
+<%= image_tag @user.user_validate, alt: 'テスト画像' %>
 <% rescue %>
 <p>プロフィール画像を投稿しましょう</p>
 <% end %>

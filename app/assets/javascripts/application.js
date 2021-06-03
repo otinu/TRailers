@@ -17,3 +17,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require activestorage
+import * as ActiveStorage from "activestorage";
+import "../utils/direct_uploads.js"
+
+ActiveStorage.start();

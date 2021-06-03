@@ -5,7 +5,7 @@
 <%= form.label :title %>
 <%= form.text_field :title %>
 <%= form.label :image %>
-<%= form.file_field :post_file %>
+<%= form.file_field :post_file, direct_upload: true %>
 <%= form.label :comment %>
 <%= form.text_area :explanation %>
 <br>
