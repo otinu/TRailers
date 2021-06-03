@@ -22,7 +22,7 @@
         <% end %>
 
          <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
-          <video src="<%= rails_blob_path(post.post_file) %>" type="video/mp4" controls width="300" height="200"></video> <!--videoタグ内のcontrols属性が使いやすいインタフェースを自動生成 -->
+          <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video> <!--videoタグ内のcontrols属性が使いやすいインタフェースを自動生成 -->
          <% end %>
          <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
           <iframe src="<%= rails_blob_path(post.post_file) %>"  marginwidth="0" marginheight="0" frameborder="0" style="border:none;"></iframe>
