@@ -51,6 +51,6 @@ end
 private
 
 def post_params
-params.require(:post).permit(:title, :explanation, :user_id)
+params.require(:post).permit(:title, :explanation, :user_id, :post_file)
 end
 end
