@@ -17,7 +17,18 @@
       <% @posts.each do |post| %>
        <tr>
         <td>
-         <!-- リンク付き動画・画像 -->
+        <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
+         <%= image_tag post.post_validate, alt: '画像' %><!-- , size: '100x100' -->
+        <% end %>
+
+         <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
+          <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video> <!--videoタグ内のcontrols属性が使いやすいインタフェースを自動生成 -->
+         <% end %>
+         <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
+          <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
+         <% end %>
+
+
         </td>
         <td><%= link_to post.title, post_path(post.id) %></td>
         <td><%= post.explanation %></td>

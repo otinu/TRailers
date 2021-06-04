@@ -1,8 +1,8 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-  <li><%= link_to '投稿', new_post_path,class: 'fas fa-book-open nav-link text-light'%></li>
- <li><%= link_to 'マイページ編集', edit_user_path,class: 'fas fa-book-open nav-link text-light'%></li>
+  <%= link_to '投稿', new_post_path,class: 'fas fa-book-open nav-link text-dark'%>
+  <%= link_to 'マイページ編集', edit_user_path,class: 'fas fa-book-open nav-link text-dark'%>
 
  <table class='table'>
   <thead>
@@ -16,9 +16,26 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to post.title, edit_post_path(post) %></td>
+        <td><%= post.title %></td>
         <td><%= post.explanation %></td>
+        <td>
+         <% if post.user_id == current_user.id %>
+           <%= link_to 'Edit', edit_post_path(post), class: "btn btn-sm btn-success" %>
+         <% end %>
+       </td>
+       <td>
+         <% if post.user_id == current_user.id %>
+          <%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+         <% end %>
+       </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<!-- サインアップ直後はプロフィール画像がなく、エラー画面になってしまう状況を避けます -->
+<% begin %>
+<%= image_tag @user.user_validate, alt: 'テスト画像' %>
+<% rescue %>
+<p>プロフィール画像を投稿しましょう</p>
+<% end %>

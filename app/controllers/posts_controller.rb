@@ -36,7 +36,7 @@ end
 def update
 @post = Post.find(params[:id])
 if @post.update(post_params)
-redirect_to post_path(@pst), notice: "You have updated book successfully."
+redirect_to post_path(@post), notice: "You have updated book successfully."
 else
 render "edit", notice: "error / can't be blank or over 200words"
 end
@@ -51,6 +51,6 @@ end
 private
 
 def post_params
-params.require(:post).permit(:title, :explanation, :user_id)
+params.require(:post).permit(:title, :explanation, :user_id, :post_file)
 end
 end
