@@ -4,6 +4,8 @@
   <%= link_to '投稿', new_post_path,class: 'fas fa-book-open nav-link text-dark'%>
   <%= link_to 'マイページ編集', edit_user_path,class: 'fas fa-book-open nav-link text-dark'%>
 
+  <h1><%= @user.name %>さんのページ</h1>
+
  <table class='table'>
   <thead>
     <tr>
@@ -39,3 +41,6 @@
 <% rescue %>
 <p>プロフィール画像を投稿しましょう</p>
 <% end %>
+
+<h3>自分の投稿へのgoods数を非表示にする</h3><br>
+<h3>他の人のgoods数を非表示にする</h3>

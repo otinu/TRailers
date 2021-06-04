@@ -34,26 +34,26 @@ ActiveRecord::Schema.define(version: 2021_06_02_225449) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "goods", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "user_id"
-    t.boolean "mine_open"
-    t.boolean "others_open"
+    t.integer "post_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "mine_open", default: true, null: false
+    t.boolean "others_open", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "title"
-    t.text "explanation"
+    t.integer "user_id", null: false
+    t.string "title", null: false
+    t.text "explanation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_225449) do
   end
 
   create_table "user_rooms", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_225449) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,13 @@
+<% if post.is_goods?(current_user) %>
+  <p>
+     <%= link_to post_goods_path(post), method: :delete, remote: true do %>
+      ♥<%= post.goods.count %>
+     <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to post_goods_path(post), method: :post, remote: true do %>
+     ♡<%= post.goods.count %>
+    <% end %>
+  </p>
+<% end %>

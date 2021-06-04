@@ -19,7 +19,12 @@
         <td>
         <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
          <%= image_tag post.post_validate, alt: '画像' %><!-- , size: '100x100' -->
+          <div id="<%= post.id %>">
+             <%= render partial: 'goods/goods_btn', locals: { post: post} %>
+          </div>
         <% end %>
+
+
 
          <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
           <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video> <!--videoタグ内のcontrols属性が使いやすいインタフェースを自動生成 -->
