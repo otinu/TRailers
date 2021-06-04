@@ -59,6 +59,10 @@ group :test do
  gem 'faker'
 end
 
+group :production do
+  gem 'mysql2'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -69,3 +73,4 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'pry-byebug'
 gem 'active_storage_validations'
 gem 'mini_magick'
+gem 'dotenv-rails'
