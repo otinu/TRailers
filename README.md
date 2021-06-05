@@ -28,7 +28,7 @@ Ruby on Rails を学ぶ皆様へ。
 
 - TRailers_アプリケーション詳細設計<br>https://docs.google.com/spreadsheets/d/1nIap4ozZZPbuY8KsQUNegym8Btlm4B4d72xHm6EPrdg/edit?usp=sharing
 
-- TRailers_WBS<br>https://docs.google.com/spreadsheets/d/1xgrgv8g-M0PCkCizla8a4G9uXLrF-kxFQq_5jHq_52E/edit?usp=sharing
+- TRailers_WBS<br>https://docs.google.com/spreadsheets/d/1ypdLWg4GF7ctWWHpH9sadE8qHGbdIDpkwMb9uacQ7SI/edit?usp=sharing
 
 - TRailers_データベース設計<br>https://docs.google.com/spreadsheets/d/1wALfpAW6Xrg7CgSO8vuDQblbhWuHeff6bcZzY2OarVA/edit?usp=sharing
 
