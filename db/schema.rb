@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_225449) do
   create_table "goods", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "user_id", null: false
-    t.boolean "mine_open", default: true, null: false
-    t.boolean "others_open", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,6 +76,8 @@ ActiveRecord::Schema.define(version: 2021_06_02_225449) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.text "introduction"
+    t.boolean "mine_open", default: true, null: false
+    t.boolean "others_open", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

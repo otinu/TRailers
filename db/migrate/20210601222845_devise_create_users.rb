@@ -34,6 +34,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name, null: false
       t.text :introduction
+      t.boolean :mine_open, default: true, null: false
+      t.boolean :others_open, default: true, null: false
 
 
       t.timestamps null: false

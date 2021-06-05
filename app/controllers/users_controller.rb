@@ -20,10 +20,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def count_view_mine
+ user = current_user
+ user.update(mine_open_params)
+ redirect_to posts_path
+end
+
+def count_view_others
+  user = current_user
+  user.update(others_open_params)
+   redirect_to posts_path
+end
+
   private
 
     def user_params
-      params.require(:user).permit(:name, :introduction, :profile_image)
+      params.require(:user).permit(:name, :introduction)
+    end
+
+    def mine_open_params
+      params.require(:user).permit(:mine_open)
+    end
+
+    def others_open_params
+      params.require(:user).permit(:others_open)
     end
 
     def ensure_correct_user
