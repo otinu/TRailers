@@ -1,0 +1,47 @@
+<!--
+条件分岐概要
+
+1.ログインユーザーが自身のgoodsを公開
+2.ログインユーザーが自身のgoodsを非公開
+3.ログインユーザー、他ユーザーともにgoodsを公開
+4.他ユーザーがgoodsを非公開
+5.ログインユーザーが他ユーザーのgoodsを非表示
+-->
+
+<div id="<%= post.id %>">
+   <% if post.user_id == current_user.id  && current_user.mine_open == true %><!-- 条件分岐1 -->
+           <% if post.is_goods?(current_user) %>
+                     <%= link_to post_goods_path(post), method: :delete, remote: true do %>
+                     <p>♥</p>
+                     <%= post.goods.count %>
+                     <% end %>
+             <% else %>
+                    <%= link_to post_goods_path(post), method: :post, remote: true do %>
+                    <p>♡</p>
+                    <%= post.goods.count %>
+                    <% end %>
+             <% end %>
+   <% elsif post.user_id == current_user.id && current_user.mine_open == false %><!-- 条件分岐2 -->
+                   <p>マイページよりご自身のgoods数を表示変更できます。</p>
+   <% elsif post.user_id != current_user.id && user_mine_open == true && current_user.others_open  == true %><!-- 条件分岐3 -->
+             <% if post.is_goods?(current_user) %>
+                     <%= link_to post_goods_path(post), method: :delete, remote: true do %>
+                     <p>♥</p>
+                     <%= post.goods.count %>
+                     <% end %>
+             <% else %>
+                    <%= link_to post_goods_path(post), method: :post, remote: true do %>
+                    <p>♡</p>
+                    <%= post.goods.count %>
+                    <% end %>
+             <% end %>
+   <% elsif post.user_id != current_user.id && user_mine_open  == false %><!-- 条件分岐4 -->
+                   <p>非公開</p>
+   <% else post.user_id != current_user.id && current_user.others_open  == false %><!-- 条件分岐5 -->
+                   <p>マイページより皆様のgoods数を表示変更できます。</p>
+   <% end %>
+</div>
+
+
+
+

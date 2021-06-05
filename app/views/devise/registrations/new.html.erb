@@ -26,6 +26,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+    <%= f.hidden_field :mine_open, :value => true %> <!-- Goods数はデフォルトで公開設定 -->
+    <%= f.hidden_field :others_open, :value => true %>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

@@ -8,8 +8,8 @@ class Post < ApplicationRecord
   validates :post_file, content_type: { in: %w[image/jpeg image/gif image/png application/pdf video/mp4], message: "Please update other file" },
                         size: { less_than: 3.megabytes, message: "should be less than 3MB" }
 
-  def favorited_by?(user)
-   favorites.where(user_id: user.id).exists?
+  def is_goods?(user)
+   goods.where(user_id: user.id).exists?
   end
 
   def post_validate

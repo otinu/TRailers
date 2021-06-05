@@ -15,7 +15,9 @@
    <td><%= link_to @post.title, post_path(@post) %></td>
    <td><%= @post.explanation %></td>
    <td>
-
+     <div id="<%= @post.id %>">
+      <%= render partial: 'goods/goods_btn', locals: { post: @post} %>
+     </div>
    </td>
    <td></td>
    <td>
@@ -30,3 +32,4 @@
    </td>
   </tr>
   </table>
+
