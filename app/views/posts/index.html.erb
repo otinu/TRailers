@@ -15,26 +15,31 @@
      </thead>
      <tbody>
       <% @posts.each do |post| %>
-       <tr>
-        <td>
-        <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
-         <!-- 「, size: '100x100'」でもリサイズ可能。Gemを使わない場合の代替案 -->
-         <%= image_tag post.post_image_resize, alt: '画像' %>
-             <!-- 「mine_open」では非同期通信が発火しないため、変数名を変更 -->
-             <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
-        <% end %>
+      <!-- サインアップ直後は投稿画像がなく、エラー画面になってしまう状況を避けます -->
+        <% begin %>
+           <tr>
+            <td>
+            <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
+             <!-- 「, size: '100x100'」でもリサイズ可能。Gemを使わない場合の代替案 -->
+             <%= image_tag post.post_image_resize, alt: '画像' %>
+                 <!-- 「mine_open」では非同期通信が発火しないため、変数名を変更 -->
+                 <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
+            <% end %>
 
-         <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
-          <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video>
-         <% end %>
-         <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
-          <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
-         <% end %>
+             <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
+              <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video>
+             <% end %>
+             <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
+              <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
+             <% end %>
 
-        </td>
-        <td><%= link_to post.title, post_path(post.id) %></td>
-        <td><%= post.explanation %></td>
-       </tr>
+            </td>
+            <td><%= link_to post.title, post_path(post.id) %></td>
+            <td><%= post.explanation %></td>
+           </tr>
+       <% rescue %>
+         <p class="lead" style="font-size:x-small">投稿を始めましょう</p>
+       <% end %>
      <% end %>
     </tbody>
    </table>
