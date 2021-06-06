@@ -12,11 +12,11 @@ class Post < ApplicationRecord
    goods.where(user_id: user.id).exists?
   end
 
-  def post_validate
+  def post_image_resize
     post_file.variant(gravity: :center, resize:"200x200^", crop:"210x210+0+0").processed
  end
 
- def user_validate
+ def user_image_resize
     profile_image.variant(resize_to_limit: [500, 500]).processed
  end
 

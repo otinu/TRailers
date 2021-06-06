@@ -15,7 +15,7 @@ class User < ApplicationRecord
  #validates :introduction, length: { maximum: 50 }
 validates :profile_image, content_type: { in: %w[image/jpeg image/gif image/png] },size: { less_than: 7000.kilobytes, message: "should be less than 3MB" }
 
- def user_validate
+ def user_image_resize
     profile_image.variant(gravity: :center, resize:"200x200^", crop:"210x210+0+0").processed
  end
 

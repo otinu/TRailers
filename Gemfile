@@ -74,3 +74,4 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'active_storage_validations'
 gem 'mini_magick'
 gem 'dotenv-rails'
+gem "aws-sdk-s3", require: false
