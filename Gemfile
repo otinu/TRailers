@@ -75,3 +75,4 @@ gem 'active_storage_validations'
 gem 'mini_magick'
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false
+gem 'whenever', require: false
