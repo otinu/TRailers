@@ -1,5 +1,22 @@
 <div class="container">
   <div class="row">
+   <div class="col-12">
+
+<!-- ジャンルの重複を無くすための準備として、配列all_genreに全要素を格納 -->
+    <% all_genre = [] %>
+    <% @posts.each_with_index do |post, i| %>
+    <% pointer = i + 1 - 1 %> <!-- pointerが0からスタートするために-1を付与 -->
+     <% post.tag_list.each do |genre| %>
+      <% all_genre[pointer] = genre %>
+     <% end %>
+    <% end %>
+
+<!-- uniqメソッドで重複を無くして一覧表示 -->
+    <% all_genre.uniq.each do |genre| %>
+     <%= link_to genre, posts_path(tag_name: genre),class: 'text-dark' %>
+    <% end %>
+
+    </div>
     <div class="col-md-3">
     </div>
     <div class="col-md-8 offset-md-1">
@@ -35,6 +52,7 @@
 
             </td>
             <td><%= link_to post.title, post_path(post.id) %></td>
+            <td><%= post.tag_list %></td>
             <td><%= post.explanation %></td>
            </tr>
        <% rescue %>

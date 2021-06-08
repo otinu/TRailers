@@ -30,7 +30,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+#環境変数
 /.env
 
+#bundleによりファイル生成は各環境毎に行う
 vendor/*
 vendor/

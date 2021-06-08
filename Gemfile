@@ -76,3 +76,4 @@ gem 'mini_magick'
 gem 'dotenv-rails'
 gem "aws-sdk-s3", require: false
 gem 'whenever', require: false
+gem 'acts-as-taggable-on'
