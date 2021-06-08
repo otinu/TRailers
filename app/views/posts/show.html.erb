@@ -16,7 +16,7 @@
    <td><%= @post.explanation %></td>
    <td>
      <div id="<%= @post.id %>">
-      <%= render partial: 'goods/goods_btn', locals: { post: @post} %>
+      <%= render partial: 'goods/goods_btn', locals: { post: @post, user_mine_open: @post.user.mine_open} %>
      </div>
    </td>
    <td></td>
