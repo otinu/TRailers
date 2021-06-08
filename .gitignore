@@ -36,8 +36,3 @@
 #bundleによりファイル生成は各環境毎に行う
 vendor/*
 vendor/
-
-#GitHubActions用ファイル
-/TRailers/.github
-/TRailers/.github/*
-.github/workflows/rails.yml
