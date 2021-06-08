@@ -13,6 +13,12 @@
           <li><%= link_to 'Posts', posts_path,class: 'fas fa-book-open nav-link text-light'%></li>
           <li><%= link_to 'Mypage', user_path(current_user),class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to 'logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
+          <li>
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :keyword %>
+              <%= f.submit "検索" %>
+            <% end %>
+          </li>
         <% else %>
           <li><%= link_to 'About',home_about_path,class: 'fas fa-link nav-link text-light' %></li>
           <li><%= link_to 'sign up', new_user_registration_path,class: 'fas fa-user-plus nav-link text-light' %></li>

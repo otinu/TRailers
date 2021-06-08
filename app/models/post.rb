@@ -14,12 +14,16 @@ class Post < ApplicationRecord
    goods.where(user_id: user.id).exists?
   end
 
-  def post_image_resize
+ def post_image_resize
     post_file.variant(gravity: :center, resize:"200x200^", crop:"210x210+0+0").processed
  end
 
  def user_image_resize
     profile_image.variant(resize_to_limit: [500, 500]).processed
  end
+
+  def self.search_for(keyword)
+    where(["title like? OR explanation like?", "%#{keyword}%", "%#{keyword}%"]) #WHERE句内でLIKEを使用し、ワイルドカード「%」でキーワードを挟みこむことで部分一致を実行
+  end
 
 end

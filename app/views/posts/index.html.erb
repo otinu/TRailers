@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-   <h1>GitHub Actionsのテストです(4) ブランチを切って、プルリクエストした場合のテスト</h1>
    <div class="col-12">
 
 <!-- ジャンルの重複を無くすための準備として、配列all_genreに全要素を格納 -->
@@ -12,7 +11,7 @@
       <% end %>
     <% end %>
 
-<!-- uniqメソッドで重複を無くして一覧表示 -->
+<!-- uniqメソッドで配列all_genre内の重複を無くして一覧表示 -->
     <% all_genre.uniq.each do |genre| %>
      <%= link_to genre, posts_path(tag_name: genre),class: 'text-dark' %>
     <% end %>
