@@ -5,10 +5,10 @@
 <!-- ジャンルの重複を無くすための準備として、配列all_genreに全要素を格納 -->
     <% all_genre = [] %>
     <% @posts.each_with_index do |post, i| %>
-    <% pointer = i + 1 - 1 %> <!-- pointerが0からスタートするために-1を付与 -->
-     <% post.tag_list.each do |genre| %>
-      <% all_genre[pointer] = genre %>
-     <% end %>
+     <% pointer = i + 1 - 1 %> <!-- pointerが0からスタートするために-1を付与 -->
+      <% post.tag_list.each do |genre| %>
+       <% all_genre[pointer] = genre %>
+      <% end %>
     <% end %>
 
 <!-- uniqメソッドで重複を無くして一覧表示 -->
