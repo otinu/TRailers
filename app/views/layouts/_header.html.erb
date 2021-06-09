@@ -12,6 +12,10 @@
         <% if user_signed_in? %>
           <li><%= link_to 'Posts', posts_path,class: 'fas fa-book-open nav-link text-light'%></li>
           <li><%= link_to 'Mypage', user_path(current_user),class: 'fas fa-users nav-link text-light' %></li>
+          <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle" style="color: gold;"></i>
+          <% end %>
+          <li><%= link_to 'Notice', notifications_path,class: 'fas fa-users nav-link text-light' %></li>
           <li><%= link_to 'logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
           <li>
             <%= form_with url: search_path, method: :get, local: true do |f| %>
