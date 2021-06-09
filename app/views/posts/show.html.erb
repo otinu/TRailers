@@ -1,8 +1,11 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
 
-<%= link_to '投稿者ページへ移動する', user_path(@post.user.id),class: 'fas fa-post-open nav-link text-dark'%>
-<%= link_to '投稿者とチャットする', chat_path(@post.user.id),class: 'fas fa-post-open nav-link text-dark'%>
+
+ <%= link_to '投稿者ページへ移動する', user_path(@post.user.id), class: 'fas fa-post-open nav-link text-dark' %>
+<% unless current_user == @post.user %> <!-- 自分自身とチャットはしない -->
+ <%= link_to '投稿者とチャットする', chat_path(@post.user.id), class: 'fas fa-post-open nav-link text-dark' %>
+<% end %>
 
  <table class='table'>
   <tr>

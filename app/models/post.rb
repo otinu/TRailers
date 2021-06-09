@@ -10,6 +10,8 @@ class Post < ApplicationRecord
 
   acts_as_taggable_on :tags
 
+  has_many :notifications, dependent: :destroy
+
   def is_goods?(user)
    goods.where(user_id: user.id).exists?
   end
@@ -24,6 +26,17 @@ class Post < ApplicationRecord
 
   def self.search_for(keyword)
     where(["title like? OR explanation like?", "%#{keyword}%", "%#{keyword}%"]) #WHERE句内でLIKEを使用し、ワイルドカード「%」でキーワードを挟みこむことで部分一致を実行
+  end
+
+  def create_notification_goods(user)
+      temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ? ", user.id, user_id, id, 'Goods'])
+      if temp.blank?
+        notification = user.active_notifications.new(post_id: id, visited_id: user_id, action: 'Goods')
+        if notification.visiter_id == notification.visited_id # 自分の投稿に対するいいねの場合は、通知済みとする
+          notification.checked = true
+        end
+        notification.save
+      end
   end
 
 end
