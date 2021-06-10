@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
   def show
     @user = User.find(params[:id])
-    rooms = current_user.all_room
+    rooms = current_user.all_rooms
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)  #roomsで取得した全ルームの中から、ログインユーザーとチャット相手のidが入ったユーザールームがあるか検索
     if user_rooms.nil?                                                #検索にヒットしない場合は新規ユーザールームを作成
       @room = Room.create
@@ -18,7 +18,7 @@ class ChatsController < ApplicationController
 
   def create
     @chat = current_user.chats.create(chat_params)
-    
+
     #チャットの通知はクラス変数を利用する関係でモデルからインスタンスメソッドの呼び出しはせずに直接記述
     companion_id = @@companion
     user = User.find(companion_id)
