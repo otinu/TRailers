@@ -9,9 +9,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).reverse_order
     if params[:tag_name] #パラメータでtag_nameが渡ってきた場合はPost.allを上書き
-      @posts = Post.tagged_with("#{params[:tag_name]}")
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).reverse_order
     end
   end
 
