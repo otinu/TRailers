@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
+
   resources :users,only: [:show,:edit,:update] do
     collection do
       patch 'count_view_mine'
