@@ -42,7 +42,7 @@ set :environment, rails_env
 set :output, 'log/cron.log'
 
 
-every 2.minute do
+every 3.day, at: '6:00pm' do
 
   begin
     runner "Batch::SendMail.send_mail"
