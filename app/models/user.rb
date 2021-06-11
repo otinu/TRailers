@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
  devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable,
-        :omniauthable, omniauth_providers: %i[twitter facebook google github]
+        :omniauthable, omniauth_providers: %i[twitter facebook google]
 
  has_many :sns_credentials, dependent: :destroy
 
@@ -28,33 +28,37 @@ class User < ApplicationRecord
  end
 
  def self.find_omniauth(auth)
-  sns_credentials = SnsCredential.find_by(uid: auth.uid, provider: auth.provider)
-   unless sns_credentials.blank?                        #同じSNSで2回目以降のアクセスの場合
-    user = User.find(sns_credentials.user.id)           #SnsCredentialに結び付いたUserをローカル変数userに格納
-   else
-    temp_pass = Devise.friendly_token[0,20]             #ランダムなパスワードを生成
-    if User.find_by(email: auth.info.email).present?    #SNS登録メールアドレスが既にTRailersで登録されているか確認
-     user = User.find_by(email: auth.info.email)
-     SnsCredential.create!(                             #確認できた場合は該当Userと結びつくSnsCredentialのみを生成
-      user_id: user.id,
-      provider: auth.provider,
-      uid: auth.uid,
-     )
+   begin #例外発生時はuserにnilを格納し、コントローラでのrescue処理へ誘導
+   sns_credentials = SnsCredential.find_by(uid: auth.uid, provider: auth.provider)
+    unless sns_credentials.blank?                        #同じSNSで2回目以降のアクセスの場合
+     user = User.find(sns_credentials.user.id)           #SnsCredentialに結び付いたUserをローカル変数userに格納
     else
-     user = User.create!(                               #確認できなかった場合はUser、SnsCredentialともに新規で生成
-      name: auth.info.name,
-      email: auth.info.email,
-      password: temp_pass,
-      password_confirmation: temp_pass,
-     )
-     SnsCredential.create!(
-      user_id: user.id,
-      provider: auth.provider,
-      uid: auth.uid,
-     )
+     if User.find_by(email: auth.info.email).present?    #SNS登録メールアドレスが既にTRailersで登録されているか確認
+      user = User.find_by(email: auth.info.email)
+      SnsCredential.create!(                             #確認できた場合は該当Userと結びつくSnsCredentialのみを生成
+       user_id: user.id,
+       provider: auth.provider,
+       uid: auth.uid,
+      )
+     elsif
+      temp_pass = Devise.friendly_token[0,20]            #ランダムなパスワードを生成
+      user = User.create!(                               #確認できなかった場合はUser、SnsCredentialともに新規で生成
+       name: auth.info.name,
+       email: auth.info.email,
+       password: temp_pass,
+       password_confirmation: temp_pass,
+      )
+      SnsCredential.create!(
+       user_id: user.id,
+       provider: auth.provider,
+       uid: auth.uid,
+      )
+     end
     end
+   rescue
+    user = nil
    end
-   return user
+  return user
  end
 
 end
