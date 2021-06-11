@@ -12,10 +12,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :google
   end
 
-  def github
-    callback_from :github
-  end
-
   private
 
   def callback_from(provider)
