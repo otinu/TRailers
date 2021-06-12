@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="mw-100">
+<html>
   <head>
     <title>TRailers</title>
     <%= csrf_meta_tags %>
@@ -11,10 +11,12 @@
     <%=  favicon_link_tag 'favicon.png', type: 'image/png' %>
   </head>
 
-  <body>
+  <body class="body_bg_color">
     <%= render 'layouts/header' %>
-    <p id="notice"><%= notice %></p>
+    <p id="notice" style ="background-color: #196989; color: #a6ce39; text-align: center;"><%= notice %></p>
     <%= yield %>
   </body>
-  <%= render 'layouts/footer' %>
+
+    <%= render 'layouts/footer' %>
+
 </html>
