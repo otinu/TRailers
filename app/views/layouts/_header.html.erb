@@ -1,26 +1,41 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-
-        <h1><%= link_to 'TRailers', destroy_user_session_path, method: :delete, class: "app_title"  %></h1>
+        <h1>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= image_tag 'logo.png' %>
+          <% end %>
+        </h1>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li><%= link_to 'Posts', posts_path,class: 'fas fa-book-open nav-link text-light'%></li>
-          <li><%= link_to 'Mypage', user_path(current_user),class: 'fas fa-users nav-link text-light' %></li>
-          <% if unchecked_notifications.any? %>
-            <i class="fa fa-circle" style="color: gold;"></i>
+          <%= link_to posts_path do %>
+            <li><i class="fa-solid fa-signs-post nav-link text-light fa-3x mt-2 mb-1"></i></li>
           <% end %>
-          <li><%= link_to 'Notice', notifications_path,class: 'fas fa-users nav-link text-light' %></li>
-          <li><%= link_to 'logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
+
+          <div>
+          <%= link_to user_path(current_user) do %>
+            <li><i class="fa-solid fa-circle-user text-light fa-3x mt-2 mb-1"></i></li>
+          <% end %>
+          </div>
+
+          <% if unchecked_notifications.any? %>
+            <%= link_to notifications_path do %>
+              <i class="fa-solid fa-circle-info fa-flash position-absolute mt-n5 ml-5" style="--fa-flash-opacity: 0.67; --fa-flash-scale: 1.5; color: gold;" ></i>
+            <% end %>
+          <% end %>
+
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <li><i class="fa-solid fa-hand-wave text-light fa-3x mt-3 mb-1"></i></li>
+          <% end %>
           <li>
             <%= form_with url: search_path, method: :get, local: true do |f| %>
               <%= f.text_field :keyword %>
-              <%= f.submit "検索" %>
+              <div class="ml-5 mt-3"><%= f.submit "Search" %></div>
             <% end %>
           </li>
         <% else %>
@@ -31,4 +46,5 @@
         </ul>
       </div>
     </div>
-  </nav>
+   </nav>
+  </header>
