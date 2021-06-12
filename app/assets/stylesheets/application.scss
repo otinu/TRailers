@@ -26,3 +26,56 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+//* =============== Body ====================================
+
+.body_bg_color {
+  background-color: rgba(166, 206, 57, .15);
+  height: 100vh;
+}
+
+//* =============== Top =====================================
+
+.top_container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: -1rem;
+  padding: 5% 0 0 5%;
+  background-image: linear-gradient(#196989, #a6ce39);
+
+}
+
+.top_upper_side {
+  margin-top: 15%;
+  text-align: center;
+  color: #a6ce39;
+}
+
+.top_lower_side {
+  margin-top: 10%;
+  text-align: center;
+  color: #196989;
+}
+
+//* =============== ハンバーガーメニュー ====================
+
+.navbar-dark .navbar-toggler-icon{
+  /* 三本線 */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(166, 206, 57, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-dark .navbar-toggler{
+  /* 枠線 */
+  border-color: rgba(166, 206, 57, 1);
+}
+
+
+//* =============== Footer ==================================
+
+.footer {
+  background-color: #a6ce39;
+  color: #196989;
+  text-align: center;
+}
+
