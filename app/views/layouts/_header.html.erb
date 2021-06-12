@@ -1,5 +1,5 @@
-<header class="sticky-top">
-  <nav class="navbar  navbar-dark bg-dark">
+<header>
+  <nav class="navbar navbar-dark bg-dark">
     <div class="container">
         <h1>
           <%= link_to destroy_user_session_path, method: :delete do %>
@@ -10,16 +10,16 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse absolute" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-5">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
         <% if user_signed_in? %>
           <%= link_to posts_path do %>
-            <i class="fa-solid fa-signs-post nav-link text-light fa-3x mt-2 mb-1"></i>
+            <li><i class="fa-solid fa-signs-post nav-link text-light fa-3x mt-2 mb-1"></i></li>
           <% end %>
 
           <div>
           <%= link_to user_path(current_user) do %>
-            <i class="fa-solid fa-circle-user text-light fa-3x mt-2 mb-1"></i>
+            <li><i class="fa-solid fa-circle-user text-light fa-3x mt-2 mb-1"></i></li>
           <% end %>
           </div>
 
@@ -30,12 +30,12 @@
           <% end %>
 
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa-solid fa-hand-wave text-light fa-3x mt-3 mb-1"></i>
+            <li><i class="fa-solid fa-hand-wave text-light fa-3x mt-3 mb-1"></i></li>
           <% end %>
           <li>
             <%= form_with url: search_path, method: :get, local: true do |f| %>
               <%= f.text_field :keyword %>
-              <%= f.submit "Search" %>
+              <div class="ml-5 mt-3"><%= f.submit "Search" %></div>
             <% end %>
           </li>
         <% else %>
@@ -46,4 +46,5 @@
         </ul>
       </div>
     </div>
-  </nav>
+   </nav>
+  </header>
