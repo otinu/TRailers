@@ -11,29 +11,37 @@
 <div id="<%= post.id %>">
    <% if post.user_id == current_user.id  && current_user.mine_open == true %><!-- 条件分岐1 -->
            <% if post.is_goods?(current_user) %>
+           <p>　【ジャンル】<%= "#{post.tag_list}" %></p>
                      <%= link_to post_goods_path(post), method: :delete, remote: true do %>
-                     <p>♥</p>
+                     <i class="fa-solid fa-box-heart fa-2x"></i>
                      <%= post.goods.count %>
                      <% end %>
+
              <% else %>
+             <p>　【ジャンル】<%= "#{post.tag_list}" %></p>
                     <%= link_to post_goods_path(post), method: :post, remote: true do %>
-                    <p>♡</p>
+                    <i class="fa-solid fa-hand-holding-heart fa-2x"></i>
                     <%= post.goods.count %>
                     <% end %>
+
              <% end %>
    <% elsif post.user_id == current_user.id && current_user.mine_open == false %><!-- 条件分岐2 -->
                    <p>マイページよりご自身のgoods数を表示変更できます。</p>
    <% elsif post.user_id != current_user.id && user_mine_open == true && current_user.others_open  == true %><!-- 条件分岐3 -->
              <% if post.is_goods?(current_user) %>
+              <p>　【ジャンル】<%= "#{post.tag_list}" %></p>
                      <%= link_to post_goods_path(post), method: :delete, remote: true do %>
-                     <p>♥</p>
+                     <i class="fa-solid fa-box-heart fa-2x"></i>
                      <%= post.goods.count %>
                      <% end %>
+
              <% else %>
+                   <p>　【ジャンル】<%= "#{post.tag_list}" %></p>
                     <%= link_to post_goods_path(post), method: :post, remote: true do %>
-                    <p>♡</p>
+                    <i class="fa-solid fa-hand-holding-heart fa-2x"></i>
                     <%= post.goods.count %>
                     <% end %>
+
              <% end %>
    <% elsif post.user_id != current_user.id && user_mine_open  == false %><!-- 条件分岐4 -->
                    <p>非公開</p>

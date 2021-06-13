@@ -19,3 +19,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+$(document).on('turbolinks:load',function(){
+  $('#arrow_top').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+    event.isDefaultPrevented();
+  });
+});

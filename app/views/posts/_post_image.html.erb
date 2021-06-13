@@ -1,53 +1,30 @@
-<div class="container-fluid">
-  <div class="row justify-content-start">
-  <%= render partial: 'posts/genre', locals: { posts: @posts } %>
- </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row justify-content-center">
-     <table class="table table-borderless">
-     <tbody>
-      <% @posts.each do |post| %>
+<% posts.each do |post| %>
       <!-- サインアップ直後は投稿画像がなく、エラー画面になってしまう状況を避けます -->
         <% begin %>
-           <tr>
-            <td align="center">
+          <div class="col mt-5">
             <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
              <!-- 「, size: '100x100'」でもリサイズ可能。Gemを使わない場合の代替案 -->
-             <%= link_to post_path(post) do %>
-              <%= image_tag post.post_image_resize, alt: '画像' %>
-             <% end %>
-             <!-- 「mine_open」では非同期通信が発火しないため、render先でのローカル変数名を変更 -->
+             <%= image_tag post.post_image_resize, alt: '画像' %>
+             <!-- 「mine_open」では非同期通信が発火しないため、変数名を変更 -->
              <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
             <% end %>
 
              <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
-             <%= link_to post_path(post) do %>
-              <video src="<%= rails_blob_path(post.post_file) %>" controls width="310" height="310"></video>
-             <% end %>
+              <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video>
               <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
              <% end %>
              <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
-              <%= link_to post_path(post) do %>
-               <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-              <% end %>
               <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
               <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
              <% end %>
-            </td>
-           </tr>
+          </div>
+          <div class="col offset-3">
+            <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
+          </div>
+          <div class="col offset-3">
+            <p><%= post.tag_list %></p>
+          </div>
        <% rescue %>
          <i class="fa-solid fa-sync fa-spin"></i>
        <% end %>
      <% end %>
-     <%= paginate @posts %>
-    </tbody>
-   </table>
-  </div>
- </div><!--row-->
-</div><!--container-->
-
-<h1 id="arrow_top">
-  <i class="fa-solid fa-hand-pointer"></i>
-</h1>

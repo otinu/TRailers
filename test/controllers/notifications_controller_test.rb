@@ -5,5 +5,4 @@ class NotificationsControllerTest < ActionDispatch::IntegrationTest
     get notifications_index_url
     assert_response :success
   end
-
 end

@@ -10,5 +10,4 @@ class GoodsControllerTest < ActionDispatch::IntegrationTest
     get goods_destroy_url
     assert_response :success
   end
-
 end
