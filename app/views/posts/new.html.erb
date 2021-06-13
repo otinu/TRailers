@@ -1,13 +1,38 @@
-<h2>New book</h2>
-
-<%= form_with model: @new_post, local:true do |form| %>
-  <%= form.label :title %>
-  <%= form.text_field :title %>
-  <%= form.label :image %>
-  <%= form.file_field :post_file, direct_upload: true %>
-  <%= form.label :ジャンル %>
-  <%= form.select :tag_list, options_for_select({ "Rails" => "Rails", "Ruby" => "Ruby", "HTML" => "HTML", "CSS" => "CSS", "JavaScript" => "JavaScript", "API" => "API", "AWS" => "AWS", "Python" => "Python", "DB" => "DB", "Test" => "Test", "DesignApp" => "DesignApp", "Rest" => "Rest"  }) %>
-  <%= form.label :comment %>
-  <%= form.text_area :explanation %><br>
-  <%= form.submit %>
-<% end %>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class="form-group col offset-1">
+    <%= form_with model: @new_post, local:true do |form| %>
+      <div class="col">
+        <%= form.label :Title %>
+      </div>
+      <div class="col-7">
+        <%= form.text_field :title, class: "form-control name" %>
+      </div>
+      <div class="offset-5">
+      </div>
+      <div class="col mt-3">
+        <%= form.label :Image %>
+      </div>
+      <div class="col" lang='en'>
+        <%= form.file_field :post_file %>
+      </div>
+      <div class="col mt-3">
+        <%= form.label :Genre %>
+      </div>
+      <div class="col">
+        <%= form.select :tag_list, options_for_select({ "Rails" => "Rails", "Ruby" => "Ruby", "HTML" => "HTML", "CSS" => "CSS", "JavaScript" => "JavaScript", "API" => "API", "AWS" => "AWS", "Python" => "Python", "DB" => "DB", "Test" => "Test", "DesignApp" => "DesignApp", "Rest" => "Rest"  }) %>
+      </div>
+      <div class="col mt-3">
+        <%= form.label :Comment %>
+      </div>
+      <div class="col-7">
+        <%= form.text_area :explanation, class: "form-control introduction" %>
+      </div>
+      <div class="offset-5">
+      </div>
+      <div class="col mt-3">
+        <%= form.submit class: 'btn btn-outline-info' %>
+      </div>
+    <% end %>
+  </div>
+</div>
