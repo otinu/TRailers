@@ -31,7 +31,6 @@
 #   rake "some:great:rake:task"
 # end
 
-
 # Rails.rootを使用するために必要
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 # cronを実行する環境変数
@@ -41,18 +40,15 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, 'log/cron.log'
 
-
 every 3.day, at: '6:00pm' do
+  runner "Batch::SendMail.send_mail"
+rescue => e
+  Rails.logger.error("aborted rails runner")
+  raise e
 
-  begin
-    runner "Batch::SendMail.send_mail"
-  rescue => e
-    Rails.logger.error("aborted rails runner")
-    raise e
-  end
-#every 1.days, at: '9:00 am' do
+  # every 1.days, at: '9:00 am' do
 
-# Rails内のメソッド実行
+  # Rails内のメソッド実行
 end
 
 # Learn more: http://github.com/javan/whenever

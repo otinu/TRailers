@@ -1,16 +1,15 @@
 class PostsController < ApplicationController
-
   def new
     @new_post = Post.new
   end
 
   def show
-   @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def index
     @posts = Post.page(params[:page]).reverse_order
-    if params[:tag_name] #パラメータでtag_nameが渡ってきた場合はPost.allを上書き
+    if params[:tag_name] # パラメータでtag_nameが渡ってきた場合はPost.allを上書き
       @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).reverse_order
     end
   end
@@ -51,7 +50,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search_for(params[:keyword]) #クラスメソッド使用
+    @posts = Post.search_for(params[:keyword]) # クラスメソッド使用
     render "index"
   end
 
@@ -60,5 +59,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :explanation, :user_id, :post_file, :tag_list)
   end
-
 end

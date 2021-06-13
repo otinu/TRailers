@@ -6,7 +6,7 @@
   <%= form.label :image %>
   <%= form.file_field :post_file, direct_upload: true %>
   <%= form.label :ジャンル %>
-  <%= form.select :tag_list, options_for_select({ "Rails" => "Rails", "Ruby" => "Ruby", "HTML" => "HTML", "CSS" => "CSS", "JavaScript" => "JavaScript", "API" => "API", "AWS" => "AWS", "Python" => "Python", "データベース" => "データベース", "テストコード" => "テストコード", "設計" => "設計", "その他" => "その他"  }) %>
+  <%= form.select :tag_list, options_for_select({ "Rails" => "Rails", "Ruby" => "Ruby", "HTML" => "HTML", "CSS" => "CSS", "JavaScript" => "JavaScript", "API" => "API", "AWS" => "AWS", "Python" => "Python", "DB" => "DB", "Test" => "Test", "設計" => "設計", "その他" => "その他"  }) %>
   <%= form.label :comment %>
   <%= form.text_area :explanation %><br>
   <%= form.submit '投稿する' %>
