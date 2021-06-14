@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def index
@@ -46,11 +47,12 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to user_path(current_user)
   end
 
   def search
-    @posts = Post.search_for(params[:keyword]) # クラスメソッド使用
+    posts = Post.search_for(params[:keyword]) # クラスメソッド使用
+    @posts = posts.page(params[:page]).reverse_order
     render "index"
   end
 

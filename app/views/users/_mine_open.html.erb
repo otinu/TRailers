@@ -1,0 +1,9 @@
+<% if current_user.mine_open == true %>
+    <%= link_to count_view_mine_users_path(current_user, user: {mine_open: false}), method: :patch do %>
+    <h3>自分の投稿へのgoods数を非表示にする</h3><br>
+    <% end %>
+<% else %>
+     <%= link_to count_view_mine_users_path(current_user, user: {mine_open: true}), method: :patch do %>
+    <h3>自分の投稿へのgoods数をオープンにする</h3><br>
+    <% end %>
+<% end %>
