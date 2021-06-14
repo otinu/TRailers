@@ -1,29 +1,19 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
    <div class="col-5 offset-2">
-    <h1>
-     <%= link_to user_path(@user), class: "text-info" do %>
-     <% if @user.profile_image.attached? %>
-      <%= image_tag @user.user_image_resize, alt: 'ProfileImage' %>
-      <%= @user.name %>
-     <% else %>
-      <i class="fa-solid fa-user-pilot text-info"></i>
-      <%= @user.name %>
-     <% end %>
-    <% end %>
-    </h1>
+     <%= render partial: 'users/user_image', locals: { user: @user } %>
    </div>
    <div class="col-2">
     <% if @post.user_id == current_user.id %>
       <%= link_to edit_post_path(@post) do %>
-       <i class="fa-solid fa-file-pen fa-3x" style="color: #a6ce39;"></i>
+        <i class="fa-solid fa-file-pen fa-3x" style="color: #a6ce39;"></i>
       <% end %>
     <% end %>
    </div>
 
    <div class="col-2">
      <% if @post.user_id == current_user.id %>
-       <%= link_to post_path(@post), method: :delete, data: { confirm: 'Please make sure!' } do %>
+       <%= link_to post_path(@post), method: :delete, data: { confirm: 'Please make sure' } do %>
         <i class="fa-solid fa-trash-can fa-3x" style="color: #a6ce39;"></i>
        <% end %>
      <% end %>

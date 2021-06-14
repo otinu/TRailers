@@ -1,0 +1,11 @@
+<h1>
+  <%= link_to user_path(user), class: "text-info" do %>
+   <% if user.profile_image.attached? %>
+    <%= image_tag user.user_image_resize, alt: 'ProfileImage' %>
+    <%= user.name %>
+   <% else %>
+    <i class="fa-solid fa-user-pilot text-info"></i>
+    <%= user.name %>
+   <% end %>
+  <% end %>
+</h1>

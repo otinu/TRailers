@@ -1,9 +1,9 @@
 <% if current_user.others_open == true %>
     <%= link_to count_view_others_users_path(current_user, user: {others_open: false}), method: :put do %>
-    <h3>他の人のgoods数を非表示にする</h3><br>
+        <i class="fa-solid fa-eye-slash fa-3x mt-4" style="color: #a6ce39;"></i>
     <% end %>
 <% else %>
-     <%= link_to count_view_others_users_path(current_user, user: {others_open: true}), method: :put do %>
-    <h3>他の人のgoods数をオープンにする</h3><br>
+    <%= link_to count_view_others_users_path(current_user, user: {others_open: true}), method: :put do %>
+        <i class="fa-solid fa-eye fa-3x mt-4" style="color: #a6ce39;"></i>
     <% end %>
 <% end %>
