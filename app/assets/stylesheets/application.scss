@@ -31,6 +31,7 @@
 
 main {
   min-height: 100vh;
+  max-width: 100vw;
 }
 
 
@@ -38,6 +39,7 @@ main {
 
 body {
   position: relative;
+  max-width: 100vw;
 }
 
 .body_bg_color {

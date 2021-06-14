@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_one_attached :post_file # ActiveStrage
 
   # validates :title, presence: true, length: { maximum: 20, minimum: 2 }, uniqueness: true
-  # validates :explanation, presence: true, length:  { maximum: 1000 }
+  # validates :explanation, presence: true, length:  { maximum: 500 }
   validates :post_file, content_type: { in: %w(image/jpeg image/gif image/png application/pdf video/mp4), message: "Please update other file" },
                         size: { less_than: 3.megabytes, message: "should be less than 3MB" }
 
@@ -16,8 +16,12 @@ class Post < ApplicationRecord
     goods.where(user_id: user.id).exists?
   end
 
-  def post_image_resize
+  def resize_index  #投稿一覧の画像サイズ変更
     post_file.variant(resize: '300x350').processed # resize:"220x200^", crop:"230x220+0+0"
+  end
+
+  def resize_show  #投稿詳細の画像サイズ変更
+    post_file.variant(resize: '200x250').processed # resize:"220x200^", crop:"230x220+0+0"
   end
 
   def user_image_resize

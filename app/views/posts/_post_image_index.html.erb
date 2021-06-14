@@ -1,30 +1,29 @@
 <% posts.each do |post| %>
       <!-- サインアップ直後は投稿画像がなく、エラー画面になってしまう状況を避けます -->
         <% begin %>
-          <div class="col mt-5">
+           <tr>
+            <td align="center">
             <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
              <!-- 「, size: '100x100'」でもリサイズ可能。Gemを使わない場合の代替案 -->
-             <%= image_tag post.post_image_resize, alt: '画像' %>
-             <!-- 「mine_open」では非同期通信が発火しないため、変数名を変更 -->
+             <%= link_to post_path(post) do %>
+              <%= image_tag post.resize_index, alt: '画像' %>
+             <% end %>
+             <!-- 「mine_open」では非同期通信が発火しないため、render先でのローカル変数名を変更 -->
              <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
             <% end %>
 
              <% if rails_blob_path(post.post_file).match(/\.mp4/) %> <!-- ファイル拡張子がmp4の場合 -->
-              <video src="<%= rails_blob_path(post.post_file) %>" controls width="300" height="200"></video>
-              <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
+                <video src="<%= rails_blob_path(post.post_file) %>" controls width="310" height="310"></video>
+                <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
              <% end %>
              <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
               <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
               <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
              <% end %>
-          </div>
-          <div class="col offset-3">
-            <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
-          </div>
-          <div class="col offset-3">
-            <p><%= post.tag_list %></p>
-          </div>
+            </td>
+           </tr>
        <% rescue %>
          <i class="fa-solid fa-sync fa-spin"></i>
        <% end %>
      <% end %>
+    <%= paginate posts %>
