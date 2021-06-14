@@ -11,11 +11,7 @@
       </div>
      <div class="form-group">
         <%= form.label :Image %>
-        <%= form.file_field :post_file %>
-      </div>
-      <div class="form-group">
-        <%= form.label :self_introduction %>
-        <%= form.text_area :introduction, class: "form-control introduction" %>
+        <%= form.file_field :post_file, direct_upload: true %>
       </div>
       <div class="form-group">
         <%= form.label :Genre %>
