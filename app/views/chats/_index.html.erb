@@ -1,13 +1,17 @@
 
  <% chats.each do |chat| %>
   <% if chat.user_id == current_user.id %>
-  <div class="destroy_test">
+  <div>
   <tbody>
     <tr>
       <th>
       <div id="<%= chat.id %>">
-        <p style="text-align: left;"><%= chat.message %></p>
-        <%= link_to 'Destroy', chat_destroy_path(chat), method: :delete, remote: true %>
+        <p class="text-break" style="text-align: left;">
+          <%= chat.message %>
+          <%= link_to chat_destroy_path(chat), method: :delete, remote: true do %>
+            <i class="fa-solid fa-trash-can" style="color: #a6ce39;"></i>
+          <% end %>
+        </p>
       </div>
       </th>
       <th></th>
@@ -18,7 +22,7 @@
     <tr>
       <th></th>
       <th>
-        <p style="text-align: right;"><%= chat.message %></p>
+        <p class="text-break font-weight-light" style="text-align: right;"><%= chat.message %></p>
       </th>
     </tr>
   </tbody>

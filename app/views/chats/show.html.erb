@@ -1,22 +1,18 @@
-<h1>Chats#show</h1>
-<p>Find me in app/views/chats/show.html.erb</p>
-
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
-            <h2 id="room"><%= @user.name %> さんとのチャット</h2>
-            <table class="message table">
+        <div class="col-10">
+            <table class="table table-borderless message">
               <thead>
                 <tr>
-                  <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
-                  <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
+                  <th style="text-align: left; font-size: 20px;"><%= render partial: 'users/user_image', locals: { user: @me } %></th>
+                  <th style="text-align: right; font-size: 20px;"><%= render partial: 'users/user_image', locals: { user: @companion } %></th>
                 </tr>
               </thead>
-            <div id="chat_destroy_<%= @chat.id %>">
+            <div>
              <%= render 'index', chats: @chats%>
             </div>
             </table>
-            <%= form_with model: @chat, remote: true do |f| %>
+            <%= form_with model: @chat, class: "ml-4", remote: true do |f| %>
               <%= f.text_field :message %>
               <%= f.hidden_field :room_id %>
             <% end %>
