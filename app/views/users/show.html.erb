@@ -1,6 +1,3 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
   <%= link_to '投稿', new_post_path,class: 'fas fa-book-open nav-link text-dark'%>
   <%= link_to 'マイページ編集', edit_user_path,class: 'fas fa-book-open nav-link text-dark'%>
 
@@ -42,26 +39,8 @@
 <p>プロフィール画像を投稿しましょう</p>
 <% end %>
 
-<% if current_user.mine_open == true %>
-    <%= link_to count_view_mine_users_path(current_user, user: {mine_open: false}), method: :patch do %>
-    <h3>自分の投稿へのgoods数を非表示にする</h3><br>
-    <% end %>
-<% else %>
-     <%= link_to count_view_mine_users_path(current_user, user: {mine_open: true}), method: :patch do %>
-    <h3>自分の投稿へのgoods数をオープンにする</h3><br>
-    <% end %>
-<% end %>
+<%= render 'users/mine_open' %>
 
-
-<% if current_user.others_open == true %>
-    <%= link_to count_view_others_users_path(current_user, user: {others_open: false}), method: :put do %>
-    <h3>他の人のgoods数を非表示にする</h3><br>
-    <% end %>
-<% else %>
-     <%= link_to count_view_others_users_path(current_user, user: {others_open: true}), method: :put do %>
-    <h3>他の人のgoods数をオープンにする</h3><br>
-    <% end %>
-<% end %>
-
+<%= render 'users/others_open' %>
 
 

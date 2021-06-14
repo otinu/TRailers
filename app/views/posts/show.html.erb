@@ -2,38 +2,50 @@
   <div class="row justify-content-center">
    <div class="col-5 offset-2">
     <h1>
-     <%= link_to user_path(@post.user), class: "text-dark" do %>
-      <%= @post.user.name %>
+     <%= link_to user_path(@user), class: "text-info" do %>
+     <% if @user.profile_image.attached? %>
+      <%= image_tag @user.user_image_resize, alt: 'ProfileImage' %>
+      <%= @user.name %>
+     <% else %>
+      <i class="fa-solid fa-user-pilot text-info"></i>
+      <%= @user.name %>
      <% end %>
+    <% end %>
     </h1>
    </div>
    <div class="col-2">
     <% if @post.user_id == current_user.id %>
       <%= link_to edit_post_path(@post) do %>
-       <i class="fa-solid fa-file-pen fa-3x" style="color: #1f8e83;"></i>
+       <i class="fa-solid fa-file-pen fa-3x" style="color: #a6ce39;"></i>
       <% end %>
     <% end %>
    </div>
 
    <div class="col-2">
-      <% if @post.user_id == current_user.id %>
-        <%= link_to post_path(@post), method: :delete, data: { confirm: 'OK?' } do %>
-         <i class="fa-solid fa-trash-can fa-3x" style="color: #1f8e83;"></i>
-        <% end %>
-      <% end %>
-     </div>
+     <% if @post.user_id == current_user.id %>
+       <%= link_to post_path(@post), method: :delete, data: { confirm: 'Please make sure!' } do %>
+        <i class="fa-solid fa-trash-can fa-3x" style="color: #a6ce39;"></i>
+       <% end %>
+     <% end %>
+    </div>
+     <div class="col offset-2">
+     <% if @user.introduction.present? %>
+      <textarea rows="5" cols="28"><%= @user.introduction %></textarea>
+     <% end %>
     </div>
    </div>
+  </div>
+
 
    <div class="col offset-2 mt-5">
-    <h3>【Title】<%= @post.title %></h3>
+    <h3>【<%= @post.title %>】</h3>
    </div>
    <div class="col offset-2 mt-5">
     <%= render partial: 'posts/post_image_show', locals: { post: @post } %>
    </div>
-    <div class="col offset-5 mt-5">
+    <div class="col offset-2 mt-5">
     <% unless current_user == @post.user %>
-     <%= link_to chat_path(@post.user.id) do %>
+     <%= link_to chat_path(@user.id) do %>
       <i class="fa-regular fa-comments-question fa-3x" style="color: #a6ce39;"></i>
      <% end %>
     <% end %>
@@ -41,6 +53,4 @@
     <div class="col offset-2">
      <textarea rows="15" cols="28"><%= @post.explanation %></textarea>
     </div>
- </div>
-</div>
 

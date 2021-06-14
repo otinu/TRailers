@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).reverse_order
+    unless current_user == @user
+      flash[:notice] = "#{@user.name}'s Post"
+      render "posts/index"
+    end
   end
 
   def edit
@@ -23,13 +27,13 @@ class UsersController < ApplicationController
   def count_view_mine
     user = current_user
     user.update(mine_open_params)
-    redirect_to posts_path
+    redirect_to user_path(current_user)
   end
 
   def count_view_others
     user = current_user
     user.update(others_open_params)
-    redirect_to posts_path
+    redirect_to user_path(current_user)
   end
 
   private
