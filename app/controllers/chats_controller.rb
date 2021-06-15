@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   def show
     @companion = User.find(params[:id]) #チャット相手
     @me = current_user
-    rooms = current_user.all_rooms
+    rooms = @me.all_rooms
     user_rooms = UserRoom.find_by(user_id: @companion.id, room_id: rooms)  # roomsで取得した全ルームの中から、ログインユーザーとチャット相手のidが入ったユーザールームがあるか検索
     if user_rooms.nil?                                                # 検索にヒットしない場合は新規ユーザールームを作成
       @room = Room.create

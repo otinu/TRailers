@@ -5,13 +5,13 @@
 2.ログインユーザーが自身のgoodsを非公開(ディスプレイスラッシュ + 虫眼鏡)
 3.ログインユーザー、他ユーザーともにgoodsを公開(全てのアイコン表示)
 4.他ユーザーがgoods数を非公開 (Goodsのカウントだけ非表示)
-5.ログインユーザーが他ユーザーのgoodsを非表示(アイスラッシュ + 虫眼鏡)
+5.ログインユーザーが他ユーザーのgoodsを非表示(Goodsのカウントだけ非表示)
 -->
 
 <div id="<%= post.id %>">
    <% if post.user_id == current_user.id  && current_user.mine_open == true %><!-- 条件分岐1 -->
            <% if post.is_goods?(current_user) %>
-             <p>　【Genre】<%= "#{post.tag_list}" %></p>
+             <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                      <%= link_to post_goods_path(post), method: :delete, remote: true do %>
                      <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                      <% end %>
@@ -21,7 +21,7 @@
                      <% end %>
 
              <% else %>
-             <p>　【Genre】<%= "#{post.tag_list}" %></p>
+             <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                     <%= link_to post_goods_path(post), method: :post, remote: true do %>
                       <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                     <% end %>
@@ -33,14 +33,14 @@
              <% end %>
    <% elsif post.user_id == current_user.id && current_user.mine_open == false %><!-- 条件分岐2 -->
                    <% if post.is_goods?(current_user) %>
-                        <p>　【Genre】<%= "#{post.tag_list}" %></p>
+                        <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                          <i class="fa-solid fa-display-slash fa-2x"></i>
                          <%= link_to post_path(post) do %>
                             <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
                          <% end %>
 
                     <% else %>
-                        <p>　【Genre】<%= "#{post.tag_list}" %></p>
+                        <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                         <i class="fa-solid fa-display-slash fa-2x"></i>
                         <%= link_to post_path(post) do %>
                           <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
@@ -48,7 +48,7 @@
                     <% end %>
    <% elsif post.user_id != current_user.id && user_mine_open == true && current_user.others_open  == true %><!-- 条件分岐3 -->
              <% if post.is_goods?(current_user) %>
-              <p>　【Genre】<%= "#{post.tag_list}" %></p>
+              <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                      <%= link_to post_goods_path(post), method: :delete, remote: true do %>
                      <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                      <% end %>
@@ -58,7 +58,7 @@
                      <% end %>
 
              <% else %>
-              <p>　【Genre】<%= "#{post.tag_list}" %></p>
+              <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                     <%= link_to post_goods_path(post), method: :post, remote: true do %>
                     <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                     <% end %>
@@ -70,7 +70,7 @@
              <% end %>
    <% elsif post.user_id != current_user.id && user_mine_open  == false %><!-- 条件分岐4 -->
                    <% if post.is_goods?(current_user) %>
-                        <p>　【Genre】<%= "#{post.tag_list}" %></p>
+                        <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                          <%= link_to post_goods_path(post), method: :delete, remote: true do %>
                            <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                          <% end %>
@@ -79,7 +79,7 @@
                          <% end %>
 
                     <% else %>
-                        <p>　【Genre】<%= "#{post.tag_list}" %></p>
+                        <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
                         <%= link_to post_goods_path(post), method: :post, remote: true do %>
                           <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                         <% end %>
@@ -89,15 +89,19 @@
                     <% end %>
    <% else post.user_id != current_user.id && current_user.others_open  == false %><!-- 条件分岐5 -->
                    <% if post.is_goods?(current_user) %>
-                        <p>　【Genre】<%= "#{post.tag_list}" %></p>
-                         <i class="fa-solid fa-eye-slash fa-2x"></i>
+                        <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
+                         <%= link_to post_goods_path(post), method: :delete, remote: true do %>
+                           <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
+                         <% end %>
                          <%= link_to post_path(post) do %>
                             <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
                          <% end %>
 
                     <% else %>
-                        <p>　【Genre】<%= "#{post.tag_list}" %></p>
-                        <i class="fa-solid fa-eye-slash fa-2x"></i>
+                        <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
+                        <%= link_to post_goods_path(post), method: :post, remote: true do %>
+                          <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
+                        <% end %>
                         <%= link_to post_path(post) do %>
                           <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
                         <% end %>
