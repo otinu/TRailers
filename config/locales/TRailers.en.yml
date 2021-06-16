@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  "Please attached any file": "Please attached any file"
   "Please make sure": "Please make sure"
   "Under from 2 to 20 characters": "Under from 2 to 20 characters"
   "Under 500 character": "Under 500 character"

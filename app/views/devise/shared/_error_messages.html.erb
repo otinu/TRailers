@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
   <div class="col offset-1 text-danger" id="error_explanation">
-    <ul>
+    <ul style="list-style: none;">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

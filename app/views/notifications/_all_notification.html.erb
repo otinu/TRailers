@@ -8,8 +8,8 @@
     <% else %>
      <p>
        <%= link_to post_path(notification.post), class: "text-info" do %>
-       <%= "From_#{ notification.visiter.name }　" %> <i class="fa-solid fa-box-heart fa-2x" style="color: #a6ce39;"></i>
-       <%= "　To_#{ notification.post.title }" %>
+       <%= "From【#{ notification.visiter.name }】　" %> <i class="fa-solid fa-box-heart fa-2x" style="color: #a6ce39;"></i>
+       <%= "　To【#{ notification.post.title }】" %>
        <% end %>
      </p>
       <% notification.checked = true %>

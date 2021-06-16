@@ -19,8 +19,16 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path
+      if @post.post_file.attached?
+        redirect_to posts_path
+      else
+        Post.last.destroy #saveしたばかりのレコードを削除(現在、ActiveStrageにバリデーションが用意されていないため、saveが実行されてしまいます)
+        @post = Post.new  #renderを使用するため、ここでnewアクションと同じ処理を
+        flash.now[:warning] = I18n.t("Please attached any file")
+        render "new"
+      end
     else
+      flash.now[:warning] = I18n.t("Please attached any file") unless @post.post_file.attached? #ファイルが添付されていなかった場合はエラー文を追加
       render "new"
     end
   end
