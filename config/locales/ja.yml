@@ -138,7 +138,7 @@ ja:
       taken: はすでに存在します
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
-      under_from_2_to_50_characters: は2～50文字以内で入力してください
+      under_from_2_to_50_characters: は2～50文字以内で入力してください  #追記
       wrong_length: は%{count}文字で入力してください
     template:
       body: 次の項目を確認してください
