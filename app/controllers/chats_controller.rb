@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   def show
     @companion = User.find(params[:id]) #チャット相手
     @me = current_user
-    rooms = current_user.all_rooms
+    rooms = @me.all_rooms
     user_rooms = UserRoom.find_by(user_id: @companion.id, room_id: rooms)  # roomsで取得した全ルームの中から、ログインユーザーとチャット相手のidが入ったユーザールームがあるか検索
     if user_rooms.nil?                                                # 検索にヒットしない場合は新規ユーザールームを作成
       @room = Room.create
@@ -20,7 +20,8 @@ class ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     unless @chat.save #51文字以上のチャットメッセージの場合は「送れない」旨を表示
-     @chat.message = "Can't send over 51 characters"
+     @chat.message = "1～50文字！" if cookies[:locale] == "ja"
+     @chat.message = "1～50Character！" if cookies[:locale] == "en"
     end
 
     # チャットの通知はクラス変数を利用する関係でモデルからインスタンスメソッドの呼び出しはせず、処理の内容を直接記述

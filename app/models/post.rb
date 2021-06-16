@@ -3,8 +3,11 @@ class Post < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_one_attached :post_file # ActiveStrage
 
-  # validates :title, presence: true, length: { maximum: 20, minimum: 2 }, uniqueness: true
-  # validates :explanation, presence: true, length:  { maximum: 500 }
+  validates :title, presence: true,
+                    length: { maximum: 20, minimum: 2,message: :under_from_2_to_50_characters },
+                    uniqueness: true
+
+  validates :explanation, presence: true, length:  { maximum: 500, message: "Please write explanation under 500 characters" }
   validates :post_file, content_type: { in: %w(image/jpeg image/gif image/png application/pdf video/mp4), message: "Please update other file" },
                         size: { less_than: 3.megabytes, message: "should be less than 3MB" }
 

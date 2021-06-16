@@ -1,10 +1,10 @@
-
+<%= render partial: 'posts/error', locals: { post: @post } %>
 
 <div class='container'>
   <div class='row'>
     <div class="col-9 col-sm-8 col-lg-7">
     <h1><i class="fa-solid fa-cog fa-spin" style="--fa-animation-duration: 40s;"></i></h1>
-    <%= form_with model: @new_post, local:true do |form| %>
+    <%= form_with model: @post, local:true do |form| %>
       <div class="form-group">
         <%= form.label :Title %>
         <%= form.text_field :title, class: "form-control name" %>

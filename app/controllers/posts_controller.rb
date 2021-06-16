@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def new
-    @new_post = Post.new
+    @post = Post.new
   end
 
   def show
@@ -16,22 +16,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.user_id = current_user.id
-    if post.save
-      flash[:notice] = "successfully!"
-      redirect_to user_path(current_user)
-    else
-      flash[:alert] = "error / can't be blank or over 200words"
-      flash[:notice] = "can't be blank"
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.save
       redirect_to posts_path
+    else
+      render "new"
     end
   end
 
   def edit
     @post = Post.find(params[:id])
     unless current_user.id == @post.user_id
-      redirect_to posts_path
+      redirect_to post_path(@post)
     end
   end
 

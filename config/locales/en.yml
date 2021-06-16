@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  Title: "Title"
+  Edit: "Edit"
+  Delete: "Delete"
+  Genre: "Genre"
+  errors:
+    messages:
+      under_from_2_to_50_characters: "under from 2 to 50 characters"

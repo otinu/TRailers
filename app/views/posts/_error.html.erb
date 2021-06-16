@@ -1,0 +1,9 @@
+<div class="col offset-1 text-danger">
+<% if post.errors.any? %> <!-- 投稿失敗時のエラー文出力 -->
+  <ul>
+    <% post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>

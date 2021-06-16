@@ -1,6 +1,9 @@
+<%= render partial: 'posts/error', locals: { post: @post } %>
+
 <div class='container-fluid'>
   <div class='row'>
     <div class="form-group col offset-1">
+    <h1><i class="fa-solid fa-cog fa-spin" style="--fa-animation-duration: 40s;"></i></h1>
     <%= form_with model:@post, local:true do |form| %>
       <div class="col">
         <%= form.label :Title %>
