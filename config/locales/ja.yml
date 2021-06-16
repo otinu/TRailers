@@ -2,8 +2,8 @@ ja:
   activerecord:
     attributes:
       post:
-        title: "投稿名"
-        explanation: "投稿へのコメント"
+        title: "投稿名" #追記
+        explanation: "投稿へのコメント" #追記
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -133,12 +133,16 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
+      Please_upload_other_file: "は他のファイル形式での投稿をお願いします。"  #追記
+      Please_upload_less_than_100KB: "は100KBまででお願いします"              #
+      Please_upload_less_than_3MB: "は3MBまででお願いします。"                #追記
+      Please_write_explanation_under_500_characters: "は500文字以内でお願いします。"  #追記
       present: は入力しないでください
       required: を入力してください
       taken: はすでに存在します
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
-      under_from_2_to_50_characters: は2～50文字以内で入力してください  #追記
+      under_from_2_to_20_characters: は2～20文字以内で入力してください  #追記
       wrong_length: は%{count}文字で入力してください
     template:
       body: 次の項目を確認してください

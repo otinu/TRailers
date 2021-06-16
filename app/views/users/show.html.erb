@@ -40,7 +40,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td>
-            <%= link_to edit_post_path(post), class: "text-info" do %>
+            <%= link_to post_path(post), class: "text-info" do %>
               <%= post.title %>
             <% end %>
         </td>
@@ -50,7 +50,7 @@
             <% end %>
         </td>
         <td>
-            <%= link_to post_path(post), method: :delete, data: { confirm: 'Please make sure' } do %>
+            <%= link_to post_path(post), method: :delete, data: { confirm: I18n.t("Please make sure") } do %>
               <i class="fa-solid fa-trash-can fa-2x" style="color: #a6ce39;"></i>
             <% end %>
         </td>

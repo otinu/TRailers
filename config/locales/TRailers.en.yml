@@ -30,10 +30,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  "Please make sure": "Please make sure"
+  "Under from 2 to 20 characters": "Under from 2 to 20 characters"
+  "Under 500 character": "Under 500 character"
   Title: "Title"
   Edit: "Edit"
   Delete: "Delete"
   Genre: "Genre"
+  Search: "Search"
   errors:
     messages:
-      under_from_2_to_50_characters: "under from 2 to 50 characters"
+      Please_select_either_jpeg_gif_png: "can't upload. Please update either JPEG, GIF, or PNG"
+      Please_upload_other_file: "can't upload. Please update other file_format"
+      Please_upload_less_than_100KB: "can't upload. Please upload file less than 100KB"
+      Please_upload_less_than_3MB: "can't upload. Please upload file less than 3MB"
+      Please_write_explanation_under_500_characters: "can't upload. Please upload write under 500 characters"
+      under_from_2_to_20_characters: "can't upload. Please write name under from 2 to 20 characters"

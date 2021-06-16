@@ -9,7 +9,7 @@
         <%= form.label :Title %>
       </div>
       <div class="col-7">
-        <%= form.text_field :title, class: "form-control name" %>
+        <%= form.text_field :title, class: "form-control name", placeholder: I18n.t("Under from 2 to 50 characters") %>
       </div>
       <div class="offset-5">
       </div>
@@ -23,7 +23,7 @@
         <%= form.label :Comment %>
       </div>
       <div class="col-7">
-        <%= form.text_area :explanation, class: "form-control introduction" %>
+        <%= form.text_area :explanation, class: "form-control introduction", placeholder: I18n.t("Under 500 character") %>
       </div>
       <div class="offset-5">
       </div>
