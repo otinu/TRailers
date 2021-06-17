@@ -3,6 +3,7 @@ ja:
   Edit: "投稿を編集する"
   Delete: "投稿を削除する"
   Genre: "ジャンル"
+  "I tried to log in, but the SNS user name was already registered in TRailers": "ログインを試みましたが、既に該当のSNSユーザー名はTRailersで登録済みでした"
   "Please attached any file": "ファイルを添付してください"
   "Please make sure": "ご確認ください"
   "Under from 2 to 20 characters": "2～20文字まで"
@@ -21,3 +22,12 @@ ja:
         Genre: "ジャンル"
         Comment: "投稿へのコメント"
         post_file: "投稿ファイル"
+  thanks_mailer:
+    send_signup_email:
+      subject: "ようこそTRailersへ！"
+  sns_login_mailer:
+    confirmation_email:
+      subject: "ようこそTRailersへ！"
+  daily_mailer:
+    confirmation:
+      subject:  "TRailersへ投稿のお忘れはありませんか。"

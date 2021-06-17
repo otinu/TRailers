@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  "I tried to log in, but the SNS user name was already registered in TRailers": "I tried to log in, but the SNS user name was already registered in TRailers"
   "Please attached any file": "Please attached any file"
   "Please make sure": "Please make sure"
   "Under from 2 to 20 characters": "Under from 2 to 20 characters"
@@ -39,6 +40,10 @@ en:
   Delete: "Delete"
   Genre: "Genre"
   Search: "Search"
+  activerecord:
+    attributes:
+      post:
+        explanation: "Comment"
   errors:
     messages:
       Please_select_either_jpeg_gif_png: "can't upload. Please update either JPEG, GIF, or PNG"
@@ -46,4 +51,13 @@ en:
       Please_upload_less_than_100KB: "can't upload. Please upload file less than 100KB"
       Please_upload_less_than_3MB: "can't upload. Please upload file less than 3MB"
       Please_write_explanation_under_500_characters: "can't upload. Please upload write under 500 characters"
-      under_from_2_to_20_characters: "can't upload. Please write name under from 2 to 20 characters"
+      under_from_2_to_20_characters: "can't upload. Please write title under from 2 to 20 characters"
+  thanks_mailer:
+    send_signup_email:
+      subject: "Welcome to TRailers!"
+  sns_login_mailer:
+    confirmation_email:
+      subject: "Welcome to TRailers!"
+  daily_mailer:
+    confirmation:
+      subject:  "Have you forgotten to post to TRailers?"

@@ -18,16 +18,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     begin # 例外発生時は実行環境のルートURLへリダイレクト
       if @user.persisted? # DBへの保存が成功しているか確認
-        flash[:notice] = "You have successfully logged in on #{provider}"
         sign_in_and_redirect @user, event: :authentication
         SnsLoginMailer.confirmation_email(@user, provider).deliver
       end
-    rescue
-      flash[:notice] = "An error has occurred! Sorry, please use normal login"
-      if Rails.env.development?
-        redirect_to "https://1c0a9f1bb1464501b731b30338cf8bf2.vfs.cloud9.ap-northeast-1.amazonaws.com/"
+    rescue => error
+      if Rails.env.development?(@user)
+        flash[:notice] = error
+        "https://1c0a9f1bb1464501b731b30338cf8bf2.vfs.cloud9.ap-northeast-1.amazonaws.com" and return  #AbstractController::DoubleRenderError発生のため、このように指定
       else
-        redirect_to "https://trailers.work"
+        flash[:notice] = error
+        destroy_user_session_path and return
       end
     end
   end

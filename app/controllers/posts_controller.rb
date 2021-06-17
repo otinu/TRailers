@@ -23,7 +23,7 @@ class PostsController < ApplicationController
         redirect_to posts_path
       else
         Post.last.destroy #saveしたばかりのレコードを削除(現在、ActiveStrageにバリデーションが用意されていないため、saveが実行されてしまいます)
-        @post = Post.new  #renderを使用するため、ここでnewアクションと同じ処理を
+        @post = Post.new  #renderを使用するため、ここでnewアクションと同じ処理をします
         flash.now[:warning] = I18n.t("Please attached any file")
         render "new"
       end

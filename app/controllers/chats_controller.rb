@@ -21,7 +21,7 @@ class ChatsController < ApplicationController
     @chat = current_user.chats.new(chat_params)
     unless @chat.save #51文字以上のチャットメッセージの場合は「送れない」旨を表示
      @chat.message = "1～50文字！" if cookies[:locale] == "ja"
-     @chat.message = "1～50Character！" if cookies[:locale] == "en"
+     @chat.message = "1～50Characters！" if cookies[:locale] == "en"
     end
 
     # チャットの通知はクラス変数を利用する関係でモデルからインスタンスメソッドの呼び出しはせず、処理の内容を直接記述

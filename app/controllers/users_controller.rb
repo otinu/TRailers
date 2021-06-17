@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order
     unless current_user == @user
-      flash[:notice] = "#{@user.name}'s Post"
       render "posts/index"
     end
   end

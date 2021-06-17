@@ -8,7 +8,7 @@
       <div id="<%= chat.id %>">
         <p class="text-break" style="text-align: left;">
           <%= chat.message %>
-          <%= link_to chat_destroy_path(chat), method: :delete do %>
+          <%= link_to chat_destroy_path(chat), method: :delete, remote: true do %>
             <i class="fa-solid fa-trash-can" style="color: #a6ce39;"></i>
           <% end %>
         </p>
