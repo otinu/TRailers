@@ -38,6 +38,8 @@ Ruby on Rails を学ぶ皆様へ。
 
 - TRailersワイヤーフレーム<br>https://drive.google.com/file/d/1pYGHvAhzC8QgzAxkS2BH2Wn__lT-1tlO/view?usp=sharing
 
+- TRailers_テスト項目<br>https://docs.google.com/document/d/1OuDSHP32JiRupKy1LJROuiXh4ZlZJPX4iWhiJa1WlF8/edit?usp=sharing
+
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1LU4F-JmB1PNmmcD-8zvwlHQIbHdybHoZtaNfvOasu7E/edit?usp=sharing>
