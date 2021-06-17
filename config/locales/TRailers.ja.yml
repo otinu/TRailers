@@ -1,0 +1,33 @@
+ja:
+  Title: "投稿名"
+  Edit: "投稿を編集する"
+  Delete: "投稿を削除する"
+  Genre: "ジャンル"
+  "I tried to log in, but the SNS user name was already registered in TRailers": "ログインを試みましたが、既に該当のSNSユーザー名はTRailersで登録済みでした"
+  "Please attached any file": "ファイルを添付してください"
+  "Please make sure": "ご確認ください"
+  "Under from 2 to 20 characters": "2～20文字まで"
+  "Under 500 character": "500文字まで"
+  Search: "検索"
+
+  activerecord:
+    attributes:
+      user:
+        name: "氏名"
+        image: "プロフィール画像"
+        introduction: "自己紹介"
+      post:
+        Title: "投稿名"
+        Image: "投稿ファイル"
+        Genre: "ジャンル"
+        Comment: "投稿へのコメント"
+        post_file: "投稿ファイル"
+  thanks_mailer:
+    send_signup_email:
+      subject: "ようこそTRailersへ！"
+  sns_login_mailer:
+    confirmation_email:
+      subject: "ようこそTRailersへ！"
+  daily_mailer:
+    confirmation:
+      subject:  "TRailersへ投稿のお忘れはありませんか。"

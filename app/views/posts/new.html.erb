@@ -7,7 +7,7 @@
     <%= form_with model: @post, local:true do |form| %>
       <div class="form-group">
         <%= form.label :Title %>
-        <%= form.text_field :title, class: "form-control name" %>
+        <%= form.text_field :title, class: "form-control name", placeholder: I18n.t("Under from 2 to 20 characters") %>
       </div>
      <div class="form-group">
         <%= form.label :Image %>
@@ -15,11 +15,12 @@
       </div>
       <div class="form-group">
         <%= form.label :Genre %>
+        <!-- レイアウトの関係で、選択肢の日本語・英語切り替えは実装していません -->
         <%= form.select :tag_list, options_for_select({ "Rails" => "Rails", "Ruby" => "Ruby", "HTML" => "HTML", "CSS" => "CSS", "JavaScript" => "JavaScript", "API" => "API", "AWS" => "AWS", "Python" => "Python", "DB" => "DB", "Test" => "Test", "DesignApp" => "DesignApp", "Rest" => "Rest"  }) %>
       </div>
       <div class="form-group">
         <%= form.label :Comment %>
-        <%= form.text_area :explanation, class: "form-control introduction" %>
+        <%= form.text_area :explanation, class: "form-control introduction", placeholder: I18n.t("Under 500 character")  %>
       </div>
       <div class="form-group">
         <%= form.submit class: 'btn btn-outline-info' %>

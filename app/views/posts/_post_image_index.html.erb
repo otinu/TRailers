@@ -22,8 +22,9 @@
              <% end %>
             </td>
            </tr>
-       <% rescue %>
+       <% rescue => error %>
          <i class="fa-solid fa-sync fa-spin"></i>
+         <% error %> <!-- 例外発生時でも「%=」にせず、ユーザーにはエラー文を非表示にしておきます -->
        <% end %>
 <% end %>
 <%= paginate posts %>

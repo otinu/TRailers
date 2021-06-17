@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order
     unless current_user == @user
-      flash[:notice] = "#{@user.name}'s Post"
       render "posts/index"
     end
   end
@@ -17,8 +16,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "successfully"
-      redirect_to posts_path
+      post = Post.find_by(user_id: current_user.id)
+      redirect_to post_path(post) if post.present?  #1件でも投稿しているユーザーは自身の投稿詳細へリダイレクト
+      redirect_to user_path(@user) if post.blank?   #投稿が一件もないユーザーはマイページへリダイレクト
     else
       render "edit"
     end

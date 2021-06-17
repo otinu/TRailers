@@ -21,9 +21,9 @@ class User < ApplicationRecord
 
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
-  validates :profile_image, content_type: { in: %w(image/jpeg image/gif image/png) }, size: { less_than: 7000.kilobytes, message: "should be less than 7000KB" }
+  validates :profile_image, content_type: { in: %w(image/jpeg image/gif image/png), message: :Please_select_either_jpeg_gif_png }, size: { less_than: 100.kilobytes, message: :Please_upload_less_than_100KB }
 
-    #====================================================   メソッド   ===================================================
+  #====================================================   メソッド   =====================================================
 
   # プロフィール画像の大きさを調整
   def user_image_resize
@@ -42,9 +42,10 @@ class User < ApplicationRecord
             provider: auth.provider,
             uid: auth.uid,
           )
-        elsif
-         temp_pass = Devise.friendly_token[0, 20] # ランダムなパスワードを生成
-          user = User.create!( # 確認できなかった場合はUser、SnsCredentialともに新規で生成
+        #ユーザー名の重複の場合には、/TRailers/app/views/users/omniauth_callbacks下のビューファイルに遷移してしまうため、各エラー用のビューページを作成しました。
+        elsif User.find_by(name: auth.info.name).blank? #2つ以上のSNSやTRailersの登録名と重複していないか確認
+          temp_pass = Devise.friendly_token[0, 20] # ランダムなパスワードを生成
+          user = User.create!(
             name: auth.info.name,
             email: auth.info.email,
             password: temp_pass,
@@ -55,6 +56,8 @@ class User < ApplicationRecord
             provider: auth.provider,
             uid: auth.uid,
           )
+        else
+          user = nil
         end
       else # 同じSNSで2回目以降のアクセスの場合
         user = User.find(sns_credentials.user.id) # SnsCredentialに結び付いたUserをローカル変数userに格納

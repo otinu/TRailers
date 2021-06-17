@@ -1,9 +1,14 @@
 <div class="col offset-1 text-danger">
-<% if post.errors.any? %> <!-- 投稿失敗時のエラー文出力 -->
-  <ul>
-    <% post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if post.errors.any? %> <!-- 投稿失敗時のエラー文出力 -->
+    <ul style="list-style: none;">
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <li><%= flash[:warning] %></li>
+    </ul>
+  <% else %>
+    <ul style="list-style: none;">
+      <li><%= flash[:warning] %></li>
+    </ul>
+  <% end %>
 </div>

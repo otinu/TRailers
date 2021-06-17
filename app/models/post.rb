@@ -2,18 +2,19 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :goods, dependent: :destroy
   has_one_attached :post_file # ActiveStrage
+  has_many :notifications, dependent: :destroy
+  acts_as_taggable_on :tags #タグ(ジャンル)付け
 
+  #==================================================== バリデーション ===================================================
   validates :title, presence: true,
-                    length: { maximum: 20, minimum: 2,message: :under_from_2_to_50_characters },
+                    length: { maximum: 20, minimum: 2,message: :under_from_2_to_20_characters },
                     uniqueness: true
 
-  validates :explanation, presence: true, length:  { maximum: 500, message: "Please write explanation under 500 characters" }
-  validates :post_file, content_type: { in: %w(image/jpeg image/gif image/png application/pdf video/mp4), message: "Please update other file" },
-                        size: { less_than: 3.megabytes, message: "should be less than 3MB" }
+  validates :explanation, presence: true, length:  { maximum: 500, message: :Please_write_explanation_under_500_characters }
+  validates :post_file, presence: true, content_type: { in: %w(image/jpeg image/gif image/png application/pdf video/mp4), message: :Please_upload_other_file },
+                        size: { less_than: 3.megabytes, message: :Please_upload_less_than_3MB }
 
-  acts_as_taggable_on :tags
-
-  has_many :notifications, dependent: :destroy
+  #====================================================   メソッド   =====================================================
 
   def is_goods?(user)
     goods.where(user_id: user.id).exists?
