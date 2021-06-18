@@ -8,7 +8,7 @@ class HomesController < ApplicationController
   def locale
     if ["ja", "en"].include?(params[:locale])
       cookies[:locale] = params[:locale]
-      redirect_to new_user_session_path
+      redirect_to :root
     end
   end
 end
