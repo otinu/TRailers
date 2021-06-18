@@ -133,9 +133,9 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
-      Please_upload_other_file: "は他のファイル形式での投稿をお願いします。"  #追記
+      Please_upload_other_file: "は他のファイル形式での投稿をお願いします"  #追記
       Please_upload_less_than_100KB: "は100KBまででお願いします"              #追記
-      Please_upload_less_than_3MB: "は3MBまででお願いします。"                #追記
+      Please_upload_less_than_3MB: "は3MBまででお願いします"                #追記
       Please_write_explanation_under_500_characters: "は500文字以内でお願いします。"  #追記
       present: は入力しないでください
       required: を入力してください
