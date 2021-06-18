@@ -129,8 +129,8 @@ ja:
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
       not_saved:
-        one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        one: エラーが発生したため %{resource} は保存されませんでした
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした"
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       Please_upload_other_file: "は他のファイル形式での投稿をお願いします"  #追記

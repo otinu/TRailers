@@ -22,6 +22,7 @@ class User < ApplicationRecord
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
   validates :profile_image, content_type: { in: %w(image/jpeg image/gif image/png), message: :Please_select_either_jpeg_gif_png }, size: { less_than: 100.kilobytes, message: :Please_upload_less_than_100KB }
+  validates :mine_open,acceptance: { message: :need_to_be_agree }, on: :create  #利用規約のチェックボックスには既存のカラムを活用。createのみにすることで、コントローラのcount_view_mineアクションには影響を与えない。
 
   #====================================================   メソッド   =====================================================
 
