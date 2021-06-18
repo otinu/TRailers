@@ -29,7 +29,7 @@
   </div>
 
   <div class="field">
-    <%= I18n.t("TOS") %>
+    <%= link_to I18n.t("TOS"), controller: "/homes", action: "about" %>
     <%= f.check_box :mine_open, { checked: false } %>
   </div>
   <%= f.hidden_field :others_open, :value => true %>

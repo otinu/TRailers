@@ -17,7 +17,7 @@ ja:
         name: "氏名"
         image: "プロフィール画像"
         introduction: "自己紹介"
-        mine_open: "TOS"
+        mine_open: "利用規約"
       post:
         Title: "投稿名"
         Image: "投稿ファイル"

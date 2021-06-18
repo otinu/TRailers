@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about', as: 'about'
+  get "home/trailer" => "homes#trailer", as: "trailer"
   get "home/locale" => "homes#locale", as: "locale"
   devise_for :users, controllers: { registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
 
