@@ -28,8 +28,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-    <%= f.hidden_field :mine_open, :value => true %> <!-- Goods数はデフォルトで公開設定 -->
-    <%= f.hidden_field :others_open, :value => true %>
+  <div class="field">
+    <%= I18n.t("TOS") %>
+    <%= f.check_box :mine_open, { checked: false } %>
+  </div>
+  <%= f.hidden_field :others_open, :value => true %>
 
 
   <div class="actions">

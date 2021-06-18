@@ -40,12 +40,16 @@ en:
   Delete: "Delete"
   Genre: "Genre"
   Search: "Search"
+  TOS: "TOS"
   activerecord:
     attributes:
+      user:
+        mine_open:  "TOS"
       post:
         explanation: "Comment"
   errors:
     messages:
+      need_to_be_agree: "need to be agree"
       Please_select_either_jpeg_gif_png: "can't upload. Please update either JPEG, GIF, or PNG"
       Please_upload_other_file: "can't upload. Please update other file_format"
       Please_upload_less_than_100KB: "can't upload. Please upload file less than 100KB"

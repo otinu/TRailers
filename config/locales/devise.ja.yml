@@ -2,10 +2,11 @@ ja:
   activerecord:
     errors:
       messages: #追記
+        need_to_be_agree: "には同意が必要です"
         Please_select_either_jpeg_gif_png: "はPDF、GIF、PNG画像のいずれかでお選びください"
         Please_upload_other_file: "のファイル形式では送信できません 他のファイル形式で送信をお願いします"
-        Please_upload_less_than_3MB: "は3MBまででお願いします。"
-        Please_write_explanation_under_500_characters: "は500文字以内でお願いします。"
+        Please_upload_less_than_3MB: "は3MBまででお願いします"
+        Please_write_explanation_under_500_characters: "は500文字以内でお願いします"
         under_from_2_to_50_characters: "は2～50文字以内で入力してください"
       models:
         user:

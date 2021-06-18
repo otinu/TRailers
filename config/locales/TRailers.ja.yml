@@ -3,6 +3,7 @@ ja:
   Edit: "投稿を編集する"
   Delete: "投稿を削除する"
   Genre: "ジャンル"
+  TOS: "利用規約"
   "I tried to log in, but the SNS user name was already registered in TRailers": "ログインを試みましたが、既に該当のSNSユーザー名はTRailersで登録済みでした"
   "Please attached any file": "ファイルを添付してください"
   "Please make sure": "ご確認ください"
@@ -16,6 +17,7 @@ ja:
         name: "氏名"
         image: "プロフィール画像"
         introduction: "自己紹介"
+        mine_open: "TOS"
       post:
         Title: "投稿名"
         Image: "投稿ファイル"
