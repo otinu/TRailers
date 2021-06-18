@@ -1,7 +1,1 @@
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="/assets/test.mp4" allowfullscreen></iframe>
-</div>
-
-<%= image_tag 'animation.svg', :alt => 'お絵描き' %>
-
-<%= image_tag 'logo.png', :alt => '初期のロゴ' %>
+<video src="<%= rails_blob_path(Post.first.post_file) %>" controls width="100%"></video>
