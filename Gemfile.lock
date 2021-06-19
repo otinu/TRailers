@@ -373,7 +373,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.5)
   byebug
-  capybara (>= 2.15)
+  capybara
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
