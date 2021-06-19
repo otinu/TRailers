@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe 'ユーザー情報のテスト' do
   let!(:user) { FactoryBot.build(:user) }
 
