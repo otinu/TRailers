@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+
+
   describe 'ユーザー情報のテスト' do
     let!(:user) { FactoryBot.build(:user) }
 
@@ -20,7 +22,7 @@ require 'rails_helper'
         user.id = 99999 #FactorieBotではUserID:1で生成するため、新規IDへ置き換え
         expect { click_button 'Sign up' }.to change(User.all, :count).by(1)
       end
-      it "ロゴのリンク(ログのテスト" do
+      it "ロゴのリンク(ログアウト)のテスト" do
         visit posts_path
         expect(page).to have_link "Logo", href: destroy_user_session_path
       end
@@ -32,13 +34,7 @@ require 'rails_helper'
     let!(:post) { FactoryBot.build(:post) }
 
     before do
-      visit new_user_registration_path
-      fill_in 'user[name]', with: user.name
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      fill_in 'user[password_confirmation]', with: user.password
-      check 'user[mine_open]'
-      click_button 'Sign up'
+      sign_up_as(user)  #SignupSupportモジュールから呼び出し
       visit user_path(user)
     end
 
@@ -80,18 +76,12 @@ require 'rails_helper'
 
     context "投稿後のユーザー詳細のテスト" do
       before "投稿してからユーザー詳細へ移動" do
-        visit new_post_path
-        expect(page).to have_content "投稿へのコメント"
-        fill_in 'post[title]', with: post.title
-        #ジャンル選択にはデフォルトで「Rails」が格納
-        attach_file("post[post_file]", "#{Rails.root}/spec/fixtures/lens.jpeg")
-        fill_in "post[explanation]", with: post.explanation
-        click_button "登録する"
+        new_post(post)  #NewPostSupportモジュールから呼び出し
         visit user_path(user)
         expect(page).to have_content '投稿を編集する'
       end
       it "投稿後のリンクの確認" do
-        expect(page).to have_link post.title, href: post_path(1)  #実際に登録はされないため便宜上、ID:1を格納
+        expect(page).to have_link post.title, href: post_path(1)
         link = find(".post-edit")
         expect(link[:href]).to eq edit_post_path(1)
         link = find(".post-destroy")
@@ -100,18 +90,11 @@ require 'rails_helper'
     end
   end
 
-
   describe "ユーザー情報編集のテスト" do
     let!(:user) { FactoryBot.build(:user) }
 
     before do
-      visit new_user_registration_path
-      fill_in 'user[name]', with: user.name
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      fill_in 'user[password_confirmation]', with: user.password
-      check 'user[mine_open]'
-      click_button 'Sign up'
+      sign_up_as(user)  #SignupSupportモジュールから呼び出し
       visit edit_user_path(user)
     end
 
