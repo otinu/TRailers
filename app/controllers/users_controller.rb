@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:others_open)
   end
 
-  def ensure_correct_user
+  def ensure_correct_user #before_action
     @user = User.find(params[:id])
     unless @user == current_user
       redirect_to user_path(current_user)

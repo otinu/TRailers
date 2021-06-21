@@ -5,7 +5,7 @@
    </div>
    <div class="col-2">
     <% if @post.user_id == current_user.id %>
-      <%= link_to edit_post_path(@post) do %>
+      <%= link_to edit_post_path(@post), class: "post-edit" do %>
         <i class="fa-solid fa-file-pen fa-3x" style="color: #a6ce39;"></i>
       <% end %>
     <% end %>
@@ -13,7 +13,7 @@
 
    <div class="col-2">
      <% if @post.user_id == current_user.id %>
-       <%= link_to post_path(@post), method: :delete, data: { confirm: I18n.t("Please make sure") } do %>
+       <%= link_to post_path(@post), method: :delete, data: { confirm: I18n.t("Please make sure") }, class: "post-destroy", id: "delete_button" do %>
         <i class="fa-solid fa-trash-can fa-3x" style="color: #a6ce39;"></i>
        <% end %>
      <% end %>

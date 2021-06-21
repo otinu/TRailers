@@ -53,10 +53,11 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '>= 2.8'
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
+  gem 'erb_lint', require: false # ERB修正
 end
 
 group :production do
