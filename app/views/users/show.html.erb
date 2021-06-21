@@ -3,7 +3,7 @@
   <%= render partial: 'users/user_image', locals: { user: @user } %>
  </div>
  <div class="col-4">
-    <%= link_to edit_user_path do %>
+    <%= link_to edit_user_path, class: "profile-edit" do %>
       <span class="fa-stack fa-2x">
         <i class="fa-solid fa-user-pilot fa-stack-3x" style="color: #a6ce39;"></i>
         <i class="fa-solid fa-pen-nib fa-stack-1x fa-inverse fa-2xs" style="color: #a6ce39;"></i>
@@ -13,7 +13,7 @@
 </div>
 <div class="row">
  <div class="col-3 offset-1">
-  <%= link_to new_post_path,style: "color: #a6ce39;" do %>
+  <%= link_to new_post_path, class: "new-post", style: "color: #a6ce39;" do %>
     <i class="fa-solid fa-file-plus fa-3x mt-4"></i>
   <% end %>
   </div>
@@ -45,12 +45,12 @@
             <% end %>
         </td>
         <td>
-            <%= link_to edit_post_path(post) do %>
+            <%= link_to edit_post_path(post), class: "post-edit" do %>
               <i class="fa-solid fa-file-pen fa-2x" style="color: #a6ce39;"></i>
             <% end %>
         </td>
         <td>
-            <%= link_to post_path(post), method: :delete, data: { confirm: I18n.t("Please make sure") } do %>
+            <%= link_to post_path(post), method: :delete, data: { confirm: I18n.t("Please make sure") }, class: "post-destroy" do %>
               <i class="fa-solid fa-trash-can fa-2x" style="color: #a6ce39;"></i>
             <% end %>
         </td>

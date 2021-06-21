@@ -1,9 +1,9 @@
 <% if current_user.others_open == true %>
-    <%= link_to count_view_others_users_path(current_user, user: {others_open: false}), method: :put do %>
+    <%= link_to count_view_others_users_path(current_user, user: {others_open: false}), method: :put, class: "others-open" do %>
         <i class="fa-solid fa-eye-slash fa-3x mt-4" style="color: #a6ce39;"></i>
     <% end %>
 <% else %>
-    <%= link_to count_view_others_users_path(current_user, user: {others_open: true}), method: :put do %>
+    <%= link_to count_view_others_users_path(current_user, user: {others_open: true}), method: :put, class: "others-open" do %>
         <i class="fa-solid fa-eye fa-3x mt-4" style="color: #a6ce39;"></i>
     <% end %>
 <% end %>

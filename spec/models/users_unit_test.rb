@@ -9,7 +9,7 @@ describe '【Max Red7】 Userモデルのテスト', type: :model do
         expect(@user).to be_valid
       end
 
-    it "【Red1】名前がが21文字以上のユーザー情報は保存されないか" do
+    it "【Red1】名前が21文字以上のユーザー情報は保存されないか" do
         @user.name = Faker::Lorem.characters(number:21)
         expect(@user).to be_valid
       end
