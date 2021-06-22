@@ -41,7 +41,7 @@ end
   post.tag_list = genre[3] if number == 3
   post.tag_list = genre[4] if number == 4
 
-  post.explanation = "【サンプル】\nこの投稿はサンプルです。\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっております。\n\I'm sorry, but the maximum file size that can be posted is 3MB." if number == 0
+  post.explanation = "【サンプル】\nこの投稿はサンプルです。\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっております。\n\nI'm sorry, but the maximum file size that can be posted is 3MB." if number == 0
   post.explanation = "【サンプル】\n seedファイル作成しました。Faker便利ですね。\n面白いのはBooleanには確率を設定できるようで、「true_ratio: 0.5」と指定するとtrueとfalseを返す確率が半々になるようです。" if number == 1
   post.explanation = "【サンプル】\nやっとTop画面完成！！\n色とか余白とか色々と気になると止まらなくて、気づいたら3時間も経過;;\nこれでまだTop一枚…。\nヽ( ´￢`)ﾉ ﾜ～ｲ" if number == 2
   post.explanation = "【サンプル】\n何故か色んなブラウザで確認するとレイアウト乱れるなと思ったら！\n皆さんもお気をつけください～" if number == 3
