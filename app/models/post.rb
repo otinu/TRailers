@@ -20,14 +20,6 @@ class Post < ApplicationRecord
     goods.where(user_id: user.id).exists?
   end
 
-  def resize_index  #投稿一覧の画像サイズ変更
-    post_file.variant(resize: '300x350').processed # resize:"220x200^", crop:"230x220+0+0"
-  end
-
-  def resize_show  #投稿詳細の画像サイズ変更
-    post_file.variant(resize: '200x250').processed # resize:"220x200^", crop:"230x220+0+0"
-  end
-
   def user_image_resize
     profile_image.variant(resize_to_limit: [500, 500]).processed
   end

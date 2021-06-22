@@ -46,6 +46,65 @@ body {
   height: 100vh;
 }
 
+input[type=checkbox] {
+  transform: scale(1.8);
+}
+
+.post-photo {
+  width: 60vw;
+  height: 60vh;
+}
+
+video {
+  width: 60vw;
+}
+
+iframe {
+  width: 60vw;
+  height: 55vh;
+}
+
+.post-show-image {
+  margin-left: 20vw;
+}
+
+.post-show-explanation {
+    margin-left: 20vw;
+    width: 60vw;
+    height: 40vh;
+  }
+.post-show-user-image {
+    margin: 0 19vw;
+  }
+
+@media (max-width: 700px) {
+  .post-photo {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  video {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  iframe {
+    width: 100vw;
+    height: 50vh;
+  }
+  .post-show-image {
+    margin: 0;
+  }
+  .post-show-explanation {
+    margin: 0;
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .post-show-user-image {
+    margin-left: 18vw;
+  }
+} /* @media */
 
 //* =============== Top =====================================
 

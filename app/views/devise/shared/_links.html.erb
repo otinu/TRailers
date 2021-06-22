@@ -1,5 +1,24 @@
+
+<div class="col-9 offset-3 pb-3">
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% sns = "Sign in with #{OmniAuth::Utils.camelize(provider)}" %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+      <% if sns == "Sign in with Twitter" %>
+        <i class="fa-brands fa-twitter-square fa-2x" style="color: #a6ce39;"></i>
+      <% elsif sns == "Sign in with Google" %>
+        <i class="fa-solid fa-square-g fa-2x ml-5" style="color: #a6ce39;"></i><br>
+      <!-- else sns == "Sign in with Twitter")
+        (i class="fa-brands fa-twitter")(/i) -->
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+<div class="col-9 offset-3">
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "Log in", new_session_path(resource_name) %>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -18,8 +37,5 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
-  <% end %>
-<% end %>
+</div>
+
