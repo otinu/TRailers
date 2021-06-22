@@ -11,8 +11,14 @@
                     email: Faker::Internet.email,
                     mine_open: Faker::Boolean.boolean(true_ratio: 1),
                     others_open: Faker::Boolean.boolean(true_ratio: 1),
+                    password: "#{ENV['ADMIN_PASSWORD']}",
+                    password_confirmation: "#{ENV['ADMIN_PASSWORD']}") if number == 0
+  user = User.create(name: Faker::Name.middle_name,
+                    email: Faker::Internet.email,
+                    mine_open: Faker::Boolean.boolean(true_ratio: 1),
+                    others_open: Faker::Boolean.boolean(true_ratio: 1),
                     password: 'password',
-                    password_confirmation: 'password')
+                    password_confirmation: 'password') unless number == 0
 
   image_url = Faker::Avatar.image(slug: user.email, size: '50x50')
   # ActiveStorageを使ってavatarを設定
@@ -35,17 +41,17 @@ end
   post.tag_list = genre[3] if number == 3
   post.tag_list = genre[4] if number == 4
 
-  post.explanation = "Rails頑張りました" if number == 0
-  post.explanation = "Ruby頑張りました" if number == 1
-  post.explanation = "HTML頑張りました" if number == 2
-  post.explanation = "CSS頑張りました" if number == 3
-  post.explanation = "JavaScript頑張りました" if number == 4
+  post.explanation = "【サンプル】この投稿はサンプルです\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっております。" if number == 0
+  post.explanation = "【サンプル】 seedファイル作成しました。Faker便利ですね。\n面白いのはBooleanには確率を設定できるようで、「true_ratio: 0.5」と指定するとtrueとfalseを返す確率が半々になるようです。" if number == 1
+  post.explanation = "【サンプル】やっとTop画面完成！！\n色とか余白とか色々と気になると止まらなくて、気づいたら3時間も経過;;\nこれでまだTop一枚…。\nヽ( ´￢`)ﾉ ﾜ～ｲ" if number == 2
+  post.explanation = "【サンプル】何故か色んなブラウザで確認するとレイアウト乱れるなと思ったら！\n皆さんもお気をつけください～" if number == 3
+  post.explanation = "【サンプル】以前チーム開発で作ったアプリに素のJavaScriptを入れてみました！ 調べてみると「touchstart」というイベントもあるようで、そのうちチャレンジしてみたいと思います。" if number == 4
 
-  post.post_file.attach(io: File.open('app/assets/images/test.mp4'), filename: 'test.mp4') if number == 0
-  post.post_file.attach(io: File.open('app/assets/images/test.pdf'), filename: 'test.pdf') if number == 1
-  post.post_file.attach(io: File.open('app/assets/images/locomotive.png'), filename: 'locomotive.png') if number == 2
-  post.post_file.attach(io: File.open('app/assets/images/lens.jpg'), filename: 'lens.jpg') if number == 3
-  post.post_file.attach(io: File.open('app/assets/images/photo.png'), filename: 'photo.png') if number == 4
+  post.post_file.attach(io: File.open('app/assets/images/Rails_sample.mp4'), filename: 'Rails_sample.mp4') if number == 0
+  post.post_file.attach(io: File.open('app/assets/images/Ruby_sample.png'), filename: 'Ruby_sample.png') if number == 1
+  post.post_file.attach(io: File.open('app/assets/images/HTML_sample.pdf'), filename: 'HTML_sample.pdf') if number == 2
+  post.post_file.attach(io: File.open('app/assets/images/CSS_sample.jpg'), filename: 'CSS_sample.jpg') if number == 3
+  post.post_file.attach(io: File.open('app/assets/images/JS_sample.mp4'), filename: 'JS_sample.mp4') if number == 4
 
   post.save(validate: false)
 end
