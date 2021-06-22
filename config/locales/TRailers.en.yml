@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  "characters minimum": "characters minimum)"
   "I tried to log in, but the SNS user name was already registered in TRailers": "I tried to log in, but the SNS user name was already registered in TRailers"
   "Please attached any file": "Please attached any file"
   "Please make sure": "Please make sure"

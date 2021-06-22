@@ -1,9 +1,9 @@
 <% if cookies[:locale] == "en" %>
   <%= link_to locale_path(locale: "ja") do %>
-    <h1><i class="fa-light fa-language" style="color: #a6ce39;"></i></h1>
+    <h3><i class="fa-light fa-language fa-2x" style="color: #a6ce39;"></i></h3>
   <% end %>
 <% else cookies[:locale] == "ja" %>
   <%= link_to locale_path(locale: "en") do %>
-    <h1><i class="fa-light fa-language" style="color: #a6ce39;"></i></h1>
+    <h3><i class="fa-light fa-language fa-2x" style="color: #a6ce39;"></i></h3>
   <% end %>
 <% end %>

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do |number|
-  user = User.create(name: Faker::Name.middle_name,
+  user = User.create(name: "Administrator",
                     email: Faker::Internet.email,
                     mine_open: Faker::Boolean.boolean(true_ratio: 1),
                     others_open: Faker::Boolean.boolean(true_ratio: 1),
@@ -41,11 +41,11 @@ end
   post.tag_list = genre[3] if number == 3
   post.tag_list = genre[4] if number == 4
 
-  post.explanation = "【サンプル】この投稿はサンプルです\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっております。" if number == 0
-  post.explanation = "【サンプル】 seedファイル作成しました。Faker便利ですね。\n面白いのはBooleanには確率を設定できるようで、「true_ratio: 0.5」と指定するとtrueとfalseを返す確率が半々になるようです。" if number == 1
-  post.explanation = "【サンプル】やっとTop画面完成！！\n色とか余白とか色々と気になると止まらなくて、気づいたら3時間も経過;;\nこれでまだTop一枚…。\nヽ( ´￢`)ﾉ ﾜ～ｲ" if number == 2
-  post.explanation = "【サンプル】何故か色んなブラウザで確認するとレイアウト乱れるなと思ったら！\n皆さんもお気をつけください～" if number == 3
-  post.explanation = "【サンプル】以前チーム開発で作ったアプリに素のJavaScriptを入れてみました！ 調べてみると「touchstart」というイベントもあるようで、そのうちチャレンジしてみたいと思います。" if number == 4
+  post.explanation = "【サンプル】\nこの投稿はサンプルです。\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっております。\n\I'm sorry, but the maximum file size that can be posted is 3MB." if number == 0
+  post.explanation = "【サンプル】\n seedファイル作成しました。Faker便利ですね。\n面白いのはBooleanには確率を設定できるようで、「true_ratio: 0.5」と指定するとtrueとfalseを返す確率が半々になるようです。" if number == 1
+  post.explanation = "【サンプル】\nやっとTop画面完成！！\n色とか余白とか色々と気になると止まらなくて、気づいたら3時間も経過;;\nこれでまだTop一枚…。\nヽ( ´￢`)ﾉ ﾜ～ｲ" if number == 2
+  post.explanation = "【サンプル】\n何故か色んなブラウザで確認するとレイアウト乱れるなと思ったら！\n皆さんもお気をつけください～" if number == 3
+  post.explanation = "【サンプル】\n以前チーム開発で作ったアプリに素のJavaScriptを入れてみました！ 調べてみると「touchstart」というイベントもあるようで、時間ある際にチャレンジしてみたいと思います！" if number == 4
 
   post.post_file.attach(io: File.open('app/assets/images/Rails_sample.mp4'), filename: 'Rails_sample.mp4') if number == 0
   post.post_file.attach(io: File.open('app/assets/images/Ruby_sample.png'), filename: 'Ruby_sample.png') if number == 1
