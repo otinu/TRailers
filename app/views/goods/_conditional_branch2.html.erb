@@ -1,0 +1,13 @@
+<% if post.is_goods?(current_user) %>
+    <p>【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
+     <i class="fa-solid fa-display-slash fa-2x"></i>
+     <%= link_to post_path(post), class: "post-glass" do %>
+        <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
+     <% end %>
+<% else %>
+    <p>【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
+    <i class="fa-solid fa-display-slash fa-2x"></i>
+    <%= link_to post_path(post), class: "post-glass" do %>
+      <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
+    <% end %>
+<% end %>

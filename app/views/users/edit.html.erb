@@ -1,4 +1,5 @@
 <%= render "devise/shared/error_messages", resource: @user %>
+
 <div class='container'>
   <div class='row'>
     <div class="col-9 col-sm-8 col-lg-7">
@@ -8,7 +9,7 @@
         <%= form.label :name %>
         <%= form.text_field :name, class: "form-control name", placeholder: I18n.t("Under from 2 to 20 characters") %>
       </div>
-     <div class="form-group">
+      <div class="form-group">
         <%= form.label :image %>
         <%= form.file_field :profile_image %>
       </div>

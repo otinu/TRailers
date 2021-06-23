@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).reverse_order
-    if params[:tag_name] # パラメータでtag_nameが渡ってきた場合はPost.allを上書き
+    if params[:tag_name]
       @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).reverse_order
     end
   end
@@ -22,13 +22,13 @@ class PostsController < ApplicationController
       if @post.post_file.attached?
         redirect_to posts_path
       else
-        Post.last.destroy #saveしたばかりのレコードを削除(現在、ActiveStrageにバリデーションが用意されていないため、saveが実行されてしまいます)
-        @post = Post.new  #renderを使用するため、ここでnewアクションと同じ処理をします
+        Post.last.destroy
+        @post = Post.new
         flash.now[:warning] = I18n.t("Please attached any file")
         render "new"
       end
     else
-      flash.now[:warning] = I18n.t("Please attached any file") unless @post.post_file.attached? #ファイルが添付されていなかった場合はエラー文を追加
+      flash.now[:warning] = I18n.t("Please attached any file") unless @post.post_file.attached?
       render "new"
     end
   end
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    posts = Post.search_for(params[:keyword]) # クラスメソッド使用
+    posts = Post.search_for(params[:keyword])
     @posts = posts.page(params[:page]).reverse_order
     render "index"
   end

@@ -31,10 +31,10 @@
 #   rake "some:great:rake:task"
 # end
 
-require File.expand_path(File.dirname(__FILE__) + "/environment") # Rails.rootを使用するために必要
-rails_env = Rails.env.to_sym  # cronを実行する環境変数
-set :environment, rails_env # cronを実行する環境変数をセット
-set :output, 'log/cron.log' # cronのログの吐き出し場所
+require File.expand_path(File.dirname(__FILE__) + "/environment")
+rails_env = Rails.env.to_sym
+set :environment, rails_env
+set :output, 'log/cron.log'
 
 every 3.day, at: '6:00pm' do
   runner "Batch::SendMail.send_mail"

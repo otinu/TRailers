@@ -1,5 +1,4 @@
 module NewPostSupport
-
   def new_post(post)
     visit new_post_path
     expect(page).to have_content "投稿へのコメント"
@@ -11,12 +10,9 @@ module NewPostSupport
   end
 
   def create_and_skip_show(post)
-    #新規投稿
     new_post(post)
-    #投稿一覧
     within "div#1" do
       find('.post-glass').click
     end
   end
-
 end

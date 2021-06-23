@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       post = Post.find_by(user_id: current_user.id)
-      redirect_to post_path(post) if post.present?  #1件でも投稿しているユーザーは自身の投稿詳細へリダイレクト
-      redirect_to user_path(@user) if post.blank?   #投稿が一件もないユーザーはマイページへリダイレクト
+      redirect_to post_path(post) if post.present?  # 1件でも投稿しているユーザーは自身の投稿詳細へリダイレクト
+      redirect_to user_path(@user) if post.blank?   # 投稿が一件もないユーザーはマイページへリダイレクト
     else
       render "edit"
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:others_open)
   end
 
-  def ensure_correct_user #before_action
+  def ensure_correct_user # before_action
     @user = User.find(params[:id])
     unless @user == current_user
       redirect_to user_path(current_user)

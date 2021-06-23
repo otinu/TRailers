@@ -1,15 +1,7 @@
-<!-- ジャンルの重複を無くすための準備として、配列all_genreに全要素を格納 -->
-    <% all_genre = [] %>
-    <% @posts.each_with_index do |post, i| %>
-     <% pointer = i + 1 - 1 %> <!-- pointerが0からスタートするために-1を付与 -->
-      <% post.tag_list.each do |genre| %>
-       <% all_genre[pointer] = genre %>
-      <% end %>
-    <% end %>
+<% make_all_genre(@posts) %>
 
-<!-- uniqメソッドで配列all_genre内の重複を無くして一覧表示 -->
-    <% all_genre.uniq.each do |genre| %>
-     <div class="col-5 offset-1 col-md-3 mb-2">
-      <h3><%= link_to genre, posts_path(tag_name: genre),class: "text-info" %></h3>
-     </div>
-    <% end %>
+<% @all_genre.uniq.each do |genre| %>
+ <div class="col-5 offset-1 col-md-3 mb-2 pl-md-5">
+  <h3><%= link_to genre, posts_path(tag_name: genre),class: "text-info" %></h3>
+ </div>
+<% end %>

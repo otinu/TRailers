@@ -274,7 +274,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :twitter,ENV['TWITTER_CLIENT_ID'],ENV['TWITTER_CLIENT_SECRET']
-  config.omniauth :facebook,ENV['FACEBOOK_CLIENT_ID'],ENV['FACEBOOK_CLIENT_SECRET']
+  #config.omniauth :facebook,ENV['FACEBOOK_CLIENT_ID'],ENV['FACEBOOK_CLIENT_SECRET']
   config.omniauth :google_oauth2,ENV['GOOGLE_CLIENT_ID'],ENV['GOOGLE_CLIENT_SECRET'], name: :google
   #config.omniauth :github, ENV["GITHUB_ID"], ENV["GITHUB_SECRET"], scope: "user:email"
   # ==> Warden configuration
