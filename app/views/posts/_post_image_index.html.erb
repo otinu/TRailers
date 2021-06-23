@@ -1,27 +1,26 @@
 <% posts.each do |post| %>
- <% begin %>
-  <tr>
-   <td align="center">
-   <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
-    <%= link_to post_path(post) do %>
-     <%= image_tag post.post_file, alt: '画像', class: "post-photo" %>
-    <% end %>
-    <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
-   <% end %>
-   
-   <% if rails_blob_path(post.post_file).match(/\.mp4/) %>
-    <video src="<%= rails_blob_path(post.post_file) %>" controls></video>
-    <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
-   <% end %>
-   <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
-    <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
-    <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
-    <% end %>
-   </td>
-  </tr>
- <% rescue => error %>
-  <i class="fa-solid fa-sync fa-spin"></i>
-  <% error %>
- <% end %>
+  <% begin %>
+    <tr>
+      <td align="center">
+       <% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/) %>
+         <%= link_to post_path(post) do %>
+           <%= image_tag post.post_file, alt: '画像', class: "post-photo" %>
+         <% end %>
+         <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
+       <% end %>
+       <% if rails_blob_path(post.post_file).match(/\.mp4/) %>
+         <video src="<%= rails_blob_path(post.post_file) %>" controls></video>
+         <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
+       <% end %>
+       <% if rails_blob_path(post.post_file).match(/\.pdf/) %>
+         <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
+         <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
+       <% end %>
+      </td>
+    </tr>
+  <% rescue => error %>
+    <i class="fa-solid fa-sync fa-spin"></i>
+    <% error %>
+  <% end %>
 <% end %>
 <%= paginate posts %>

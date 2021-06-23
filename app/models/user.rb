@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 50 }
   validates :profile_image, content_type: { in: %w(image/jpeg image/gif image/png), message: :Please_select_either_jpeg_gif_png }, size: { less_than: 100.kilobytes, message: :Please_upload_less_than_100KB }
   validates :mine_open, acceptance: { message: :need_to_be_agree }, on: :create
-  
+
   def user_image_resize
     profile_image.variant(resize: '50x50').processed
   end

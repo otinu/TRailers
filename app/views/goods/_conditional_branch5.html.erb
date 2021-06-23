@@ -1,0 +1,17 @@
+<% if post.is_goods?(current_user) %>
+    <p>【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
+    <%= link_to post_goods_path(post), method: :delete, remote: true, class: "goods-destroy",style: "text-decoration: none;" do %>
+      <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
+    <% end %>
+    <%= link_to post_path(post), class: "post-glass" do %>
+      <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
+    <% end %>
+<% else %>
+    <p>【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
+    <%= link_to post_goods_path(post), method: :post, remote: true, class: "goods-create",style: "text-decoration: none;" do %>
+      <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
+    <% end %>
+    <%= link_to post_path(post), class: "post-glass" do %>
+      <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
+    <% end %>
+<% end %>

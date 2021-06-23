@@ -1,4 +1,4 @@
-<% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/)  %>
+<% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/) %>
  <%= image_tag post.post_file, alt: '画像', class: "post-photo" %>
  <%= render partial: 'goods/goods_btn', locals: { post: post, user_mine_open: post.user.mine_open, user_others_open: post.user.others_open} %>
 <% end %>
