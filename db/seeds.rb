@@ -41,11 +41,11 @@ end
   post.tag_list = genre[3] if number == 3
   post.tag_list = genre[4] if number == 4
 
-  post.explanation = "【サンプル】\nこの投稿はサンプルです。\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっております。\n\nI'm sorry, but the maximum file size that can be posted is 3MB." if number == 0
-  post.explanation = "【サンプル】\n seedファイル作成しました。Faker便利ですね。\n面白いのはBooleanには確率を設定できるようで、「true_ratio: 0.5」と指定するとtrueとfalseを返す確率が半々になるようです。" if number == 1
-  post.explanation = "【サンプル】\nやっとTop画面完成！！\n色とか余白とか色々と気になると止まらなくて、気づいたら3時間も経過;;\nこれでまだTop一枚…。\nヽ( ´￢`)ﾉ ﾜ～ｲ" if number == 2
-  post.explanation = "【サンプル】\n何故か色んなブラウザで確認するとレイアウト乱れるなと思ったら！\n皆さんもお気をつけください～" if number == 3
-  post.explanation = "【サンプル】\n以前チーム開発で作ったアプリに素のJavaScriptを入れてみました！ 調べてみると「touchstart」というイベントもあるようで、時間ある際にチャレンジしてみたいと思います！" if number == 4
+  post.explanation = "【サンプル/Sample】\nこの投稿はサンプルです。\n恐れながら、ポートフォリオ用のストレージの関係で投稿できるファイルのサイズは最大で3MBになっておりますが、サンプル動画は特別に3MB以上で投稿しています。\n\nI'm sorry, but the maximum file size that can be posted is 3MB.\nSamples are specially posted over 3MB" if number == 0
+  post.explanation = "【サンプル/Sample】\n seedファイル作成しました。Faker便利ですね。\n面白いのはBooleanには確率を設定できるようで、「true_ratio: 0.5」と指定するとtrueとfalseを返す確率が半々になるようです。" if number == 1
+  post.explanation = "【サンプル/Sample】\nやっとTop画面完成！！\n色とか余白とか色々と気になると止まらなくて、気づいたら3時間も経過;;\nこれでまだTop一枚…。\nヽ( ´￢`)ﾉ ﾜ～ｲ" if number == 2
+  post.explanation = "【サンプル/Sample】\n何故か色んなブラウザで確認するとレイアウト乱れるなと思ったら！\n皆さんもお気をつけください～" if number == 3
+  post.explanation = "【サンプル/Sample】\n以前チーム開発で作ったアプリに素のJavaScriptを入れてみました！ 調べてみると「touchstart」というイベントもあるようで、時間ある際にチャレンジしてみたいと思います！" if number == 4
 
   post.post_file.attach(io: File.open('app/assets/images/Rails_sample.mp4'), filename: 'Rails_sample.mp4') if number == 0
   post.post_file.attach(io: File.open('app/assets/images/Ruby_sample.png'), filename: 'Ruby_sample.png') if number == 1
