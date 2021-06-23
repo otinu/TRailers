@@ -12,17 +12,17 @@
    <% if post.user_id == current_user.id  && current_user.mine_open == true %><!-- 条件分岐1 -->
             <% if post.is_goods?(current_user) %>
              <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
-                     <%= link_to post_goods_path(post), method: :delete, remote: true, class: "goods-destroy" do %>
+                    <%= link_to post_goods_path(post), method: :delete, remote: true, class: "goods-destroy",style: "text-decoration: none;"  do %>
                      <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
-                     <% end %>
-                     <%= post.goods.count %>
-                     <%= link_to post_path(post), class: "post-glass" do %>
+                    <% end %>
+                    <%= post.goods.count %>
+                    <%= link_to post_path(post), class: "post-glass" do %>
                         <i class="fa-solid fa-magnifying-glass fa-2x ml-5" style="color: #a6ce39;"></i>
-            <% end %>
+                    <% end %>
 
              <% else %>
              <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
-                    <%= link_to post_goods_path(post), method: :post, remote: true, class: "goods-create" do %>
+                    <%= link_to post_goods_path(post), method: :post, remote: true, class: "goods-create",style: "text-decoration: none;" do %>
                       <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                     <% end %>
                     <%= post.goods.count %>
@@ -49,7 +49,7 @@
    <% elsif post.user_id != current_user.id && user_mine_open == true && current_user.others_open  == true %><!-- 条件分岐3 -->
              <% if post.is_goods?(current_user) %>
               <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
-                     <%= link_to post_goods_path(post), method: :delete, remote: true, class: "goods-destroy" do %>
+                     <%= link_to post_goods_path(post), method: :delete, remote: true, class: "goods-destroy",style: "text-decoration: none;" do %>
                      <i class="fa-solid fa-box-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                      <% end %>
                      <%= post.goods.count %>
@@ -59,7 +59,7 @@
 
              <% else %>
               <p>　【<%= I18n.t("Genre") %>】<%= "#{post.tag_list}" %></p>
-                    <%= link_to post_goods_path(post), method: :post, remote: true, class: "goods-create" do %>
+                    <%= link_to post_goods_path(post), method: :post, remote: true, class: "goods-create",style: "text-decoration: none;" do %>
                     <i class="fa-solid fa-hand-holding-heart fa-2x mt-1" style="color: #a6ce39;"></i>
                     <% end %>
                     <%= post.goods.count %>
