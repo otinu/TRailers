@@ -5,9 +5,6 @@ class HomesController < ApplicationController
   def about
   end
 
-  def trailer
-  end
-
   def locale
     if ["ja", "en"].include?(params[:locale])
       cookies[:locale] = params[:locale]

@@ -4,8 +4,8 @@
             <table class="table table-borderless message">
               <thead>
                 <tr>
-                  <th style="text-align: left; font-size: 20px;"><%= render partial: 'users/user_image', locals: { user: @me } %></th>
-                  <th style="text-align: right; font-size: 20px;"><%= render partial: 'users/user_image', locals: { user: @companion } %></th>
+                  <th style="text-align: left;"><%= render partial: 'chats/two_users_image', locals: { user: @me } %></th>
+                  <th style="text-align: right;"><%= render partial: 'chats/two_users_image', locals: { user: @companion } %></th>
                 </tr>
               </thead>
             <div>

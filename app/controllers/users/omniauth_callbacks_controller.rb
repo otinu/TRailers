@@ -14,20 +14,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def callback_from(provider)
-    @user = User.find_omniauth(request.env['omniauth.auth']) # モデル内のクラスメソッド使用
+    @user = User.find_omniauth(request.env['omniauth.auth'])
 
-    begin # 例外発生時は実行環境のルートURLへリダイレクト
-      if @user.persisted? # DBへの保存が成功しているか確認
+    begin
+      if @user.persisted?
         sign_in_and_redirect @user, event: :authentication
         SnsLoginMailer.confirmation_email(@user, provider).deliver
       end
     rescue => error
       if Rails.env.development?(@user)
         flash[:notice] = error
-        "https://1c0a9f1bb1464501b731b30338cf8bf2.vfs.cloud9.ap-northeast-1.amazonaws.com" and return  #AbstractController::DoubleRenderError発生のため、このように指定
+        "https://1c0a9f1bb1464501b731b30338cf8bf2.vfs.cloud9.ap-northeast-1.amazonaws.com" && return
       else
         flash[:notice] = error
-        destroy_user_session_path and return
+        "http://trailers.work" && return
       end
     end
   end

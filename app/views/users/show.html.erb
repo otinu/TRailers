@@ -2,31 +2,35 @@
  <div class="col offset-1 pt-2">
   <%= render partial: 'users/user_image', locals: { user: @user } %>
  </div>
- <div class="col-4">
+  <div class="col-4">
     <%= link_to edit_user_path, class: "profile-edit" do %>
-      <span class="fa-stack fa-2x">
-        <i class="fa-solid fa-user-pilot fa-stack-3x" style="color: #a6ce39;"></i>
-        <i class="fa-solid fa-pen-nib fa-stack-1x fa-inverse fa-2xs" style="color: #a6ce39;"></i>
-      </span>
+      <% if @user.name.length < 9 %>
+        <span class="fa-stack fa-2x">
+          <i class="fa-solid fa-user-pilot fa-stack-3x user-edit-icon-person" style="color: #a6ce39;"></i>
+          <i class="fa-solid fa-pen-nib fa-stack-1x fa-inverse fa-2xs user-edit-icon-pen" style="color: #a6ce39;"></i>
+        </span>
+      <% else %>
+        <span class="fa-stack fa-2x offset-4 offset-md-0">
+          <i class="fa-solid fa-user-pilot fa-stack-3x user-edit-icon-person" style="color: #a6ce39;"></i>
+          <i class="fa-solid fa-pen-nib fa-stack-1x fa-inverse fa-2xs user-edit-icon-pen" style="color: #a6ce39;"></i>
+        </span>
+      <% end %>
     <% end %>
   </div>
 </div>
 <div class="row">
- <div class="col-3 offset-1">
-  <%= link_to new_post_path, class: "new-post", style: "color: #a6ce39;" do %>
-    <i class="fa-solid fa-file-plus fa-3x mt-4"></i>
-  <% end %>
+  <div class="col-3 offset-1">
+    <%= link_to new_post_path, class: "new-post", style: "color: #a6ce39;" do %>
+      <i class="fa-solid fa-file-plus fa-3x mt-4"></i>
+    <% end %>
   </div>
-
   <div class="col-3 offset-1">
     <%= render 'users/mine_open' %>
   </div>
   <div class="col-3 offset-1">
     <%= render 'users/others_open' %>
   </div>
-
 </div>
-
 
  <table class='table table-hover'>
   <thead>
@@ -40,19 +44,19 @@
     <% @posts.each do |post| %>
       <tr>
         <td>
-            <%= link_to post_path(post), class: "text-info" do %>
-              <%= post.title %>
-            <% end %>
+          <%= link_to post_path(post), class: "text-info" do %>
+            <%= post.title %>
+          <% end %>
         </td>
         <td>
-            <%= link_to edit_post_path(post), class: "post-edit" do %>
-              <i class="fa-solid fa-file-pen fa-2x" style="color: #a6ce39;"></i>
-            <% end %>
+          <%= link_to edit_post_path(post), class: "post-edit" do %>
+            <i class="fa-solid fa-file-pen fa-2x" style="color: #a6ce39;"></i>
+          <% end %>
         </td>
         <td>
-            <%= link_to post_path(post), method: :delete, data: { confirm: I18n.t("Please make sure") }, class: "post-destroy" do %>
-              <i class="fa-solid fa-trash-can fa-2x" style="color: #a6ce39;"></i>
-            <% end %>
+          <%= link_to post_path(post), method: :delete, data: { confirm: I18n.t("Please make sure") }, class: "post-destroy" do %>
+            <i class="fa-solid fa-trash-can fa-2x" style="color: #a6ce39;"></i>
+          <% end %>
         </td>
       </tr>
     <% end %>

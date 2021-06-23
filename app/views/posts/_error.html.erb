@@ -1,5 +1,5 @@
 <div class="col offset-1 text-danger">
-  <% if post.errors.any? %> <!-- 投稿失敗時のエラー文出力 -->
+  <% if post.errors.any? %>
     <ul style="list-style: none;">
       <% post.errors.full_messages.each do |message| %>
         <li><%= message %></li>

@@ -1,22 +1,22 @@
 <% notifications.each do |notification| %>
-<tr>
-<td align="center">
-    <% if notification.action == 'Chat' %>
-      <%= link_to  chat_path(notification.visiter) do %>
-      <p class="text-info"><%= "Arrived_#{ notification.visiter.name } " %><i class="fa-duotone fa-comment-captions fa-2x"></i></p>
+  <tr>
+    <td align="center">
+      <% if notification.action == 'Chat' %>
+        <%= link_to  chat_path(notification.visiter) do %>
+          <p class="text-info"><%= "Arrived_#{ notification.visiter.name } " %><i class="fa-duotone fa-comment-captions fa-2x"></i></p>
+        <% end %>
+      <% else %>
+        <p>
+          <%= link_to post_path(notification.post), class: "text-info" do %>
+            <%= "From【#{ notification.visiter.name }】　" %> <i class="fa-solid fa-box-heart fa-2x" style="color: #a6ce39;"></i>
+            <%= "　To【#{ notification.post.title }】" %>
+          <% end %>
+        </p>
+        <% notification.checked = true %>
+        <% notification.save %>
       <% end %>
-    <% else %>
-     <p>
-       <%= link_to post_path(notification.post), class: "text-info" do %>
-       <%= "From【#{ notification.visiter.name }】　" %> <i class="fa-solid fa-box-heart fa-2x" style="color: #a6ce39;"></i>
-       <%= "　To【#{ notification.post.title }】" %>
-       <% end %>
-     </p>
-      <% notification.checked = true %>
-      <% notification.save %>               <!-- Goodsの通知は通知一覧画面への遷移時にチェックを付ける -->
-    <% end %>
-</td>
-</tr>
+    </td>
+  </tr>
 <% end %>
 
 

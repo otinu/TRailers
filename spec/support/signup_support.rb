@@ -1,5 +1,4 @@
 module SignupSupport
-
   def sign_up_as(user)
     visit new_user_registration_path
     fill_in 'user[name]', with: user.name

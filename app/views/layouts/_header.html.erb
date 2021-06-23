@@ -1,40 +1,40 @@
 <header>
   <nav class="navbar navbar-dark" style="background-color: #196989;">
     <div class="container">
-        <h1>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <%= image_tag 'logo5.png', :alt => 'Logo' %>
-          <% end %>
-        </h1>
-
+      <h1>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= image_tag 'logo5.png', :alt => 'Logo' %>
+        <% end %>
+      </h1>
+      
       <% if user_signed_in? %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
-         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <%= link_to posts_path do %>
-              <i class="col-3 col-md-2 offset-md-2 fa-solid fa-signs-post nav-link fa-3x mt-2 mb-1" style="color: #a6ce39;" ></i>
-            <% end %>
-            <%= link_to user_path(current_user) do %>
-              <i class="col-3 col-md-2 offset-md-2 fa-solid fa-user-pilot fa-3x mt-2 mb-1" style="color: #a6ce39;"></i>
-            <% end %>
-            <% if unchecked_notifications.any? %>
-              <%= link_to notifications_path do %>
-                <i class="fa-solid fa-circle-info fa-flash position-absolute mt-n4 ml-5" style="--fa-flash-scale: 2.5; color: #a6ce39;" ></i>
-              <% end %>
-            <% end %>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="col-3 col-md-1 offset-md-2 fa-solid fa-hand-wave fa-3x mt-3 mb-1" style="color: #a6ce39;"></i>
-            <% end %>
-            <div class="offset-1">
-              <%= form_with url: search_path, method: :get, local: true do |f| %>
-                <%= f.text_field :keyword, size: 25 %>
-                <%= f.submit I18n.t("Search") %>
-              <% end %>
-         </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <%= link_to posts_path do %>
+          <i class="col-3 col-md-2 offset-md-2 fa-solid fa-signs-post nav-link fa-3x mt-2 mb-1" style="color: #a6ce39;" ></i>
         <% end %>
-
+        <%= link_to user_path(current_user) do %>
+          <i class="col-3 col-md-2 offset-md-2 fa-solid fa-user-pilot fa-3x mt-2 mb-1" style="color: #a6ce39;"></i>
+        <% end %>
+        <% if unchecked_notifications.any? %>
+          <%= link_to notifications_path do %>
+          <i class="fa-solid fa-circle-info fa-flash position-absolute mt-n4 ml-5" style="--fa-flash-scale: 2.5; color: #a6ce39;" ></i>
+          <% end %>
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="col-3 col-md-1 offset-md-2 fa-solid fa-hand-wave fa-3x mt-3 mb-1" style="color: #a6ce39;"></i>
+        <% end %>
+        <div class="offset-1">
+          <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :keyword, size: 25 %>
+            <%= f.submit I18n.t("Search") %>
+          <% end %>
+        </div>
+      <% end %>
+      
       </div>
     </div>
-   </nav>
-  </header>
+  </nav>
+</header>

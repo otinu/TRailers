@@ -66,6 +66,7 @@ iframe {
 
 .post-show-image {
   margin-left: 20vw;
+  padding: 0;
 }
 
 .post-show-explanation {
@@ -76,6 +77,8 @@ iframe {
 .post-show-user-image {
     margin: 0 19vw;
   }
+
+
 
 @media (max-width: 700px) {
   .post-photo {
@@ -118,12 +121,7 @@ iframe {
   background-image: linear-gradient(#196989, #a6ce39);
 }
 
-.top_upper_side {
-  text-align: center;
-  color: #a6ce39;
-}
-
-.top_lower_side {
+.top_icon {
   padding-top: 20vh;
   text-align: center;
   color: #a6ce39;

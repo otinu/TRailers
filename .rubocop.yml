@@ -6,10 +6,13 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'bin/*'
+    - 'config/schedule.rb'
     - 'config/environments/*'
     - 'config/application.rb'
     - 'config/initializers/*'
     - 'config/spring.rb'
     - 'lib/tasks/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
     - 'vendor/**/*'
     - 'path/ruby'
