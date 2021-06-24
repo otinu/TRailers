@@ -1,6 +1,10 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = current_user.passive_notifications.where(checked: false)
+    if current_user.passive_notifications.find_by(action: "Goods", checked: false).presence
+      @notifications = current_user.passive_notifications.includes([:visiter], [:post]).where(checked: false)
+    else
+      @notifications = current_user.passive_notifications.includes([:visiter]).where(checked: false)
+    end
   end
 
   def destroy_all_your_notifications
