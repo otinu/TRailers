@@ -1,5 +1,5 @@
 
-<div class="col-9 offset-3 pb-3">
+<div class="offset-3 pb-3">
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% sns = "Sign in with #{OmniAuth::Utils.camelize(provider)}" %>
@@ -7,9 +7,9 @@
       <% if sns == "Sign in with Twitter" %>
         <i class="fa-brands fa-twitter-square fa-2x" style="color: #a6ce39;"></i>
       <% elsif sns == "Sign in with Google" %>
-        <i class="fa-solid fa-square-g fa-2x ml-5" style="color: #a6ce39;"></i><br>
-      <!-- else sns == "Sign in with Facebook")
-        (i class="fa-brands fa-facebook")(/i) -->
+        <i class="fa-solid fa-square-g fa-2x google-icon" style="color: #a6ce39;"></i>
+      <% else %>
+        <i class="fa-brands fa-github fa-2x github-icon" style="color: #a6ce39"></i>
       <% end %>
     <% end %>
   <% end %>

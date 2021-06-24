@@ -3,12 +3,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from :twitter
   end
 
-  def facebook
-    callback_from :facebook
-  end
-
   def google
     callback_from :google
+  end
+
+  def github
+    callback_from :github
   end
 
   private
