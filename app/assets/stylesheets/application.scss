@@ -78,6 +78,13 @@ iframe {
     margin: 0 19vw;
   }
 
+.google-icon {
+  margin-left: 5%;
+}
+
+.github-icon {
+  margin-left: 5%;
+}
 
 
 @media (max-width: 700px) {
@@ -109,6 +116,16 @@ iframe {
     margin-left: 18vw;
   }
 } /* @media */
+
+@media (max-width: 400px) {
+  .google-icon {
+  margin-left: 10%;
+}
+
+  .github-icon {
+    margin-left: 10%;
+  }
+}
 
 //* =============== Top =====================================
 

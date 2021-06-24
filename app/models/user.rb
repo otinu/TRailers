@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i(twitter facebook google)
+         :omniauthable, omniauth_providers: %i(twitter github google)
 
   has_many :sns_credentials, dependent: :destroy
 

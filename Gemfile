@@ -80,7 +80,7 @@ gem 'acts-as-taggable-on'
 gem 'omniauth'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth-twitter'
-gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'kaminari'
 gem 'rubocop-airbnb'
