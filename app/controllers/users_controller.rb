@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).reverse_order
     unless current_user == @user
+      @posts = Post.includes([post_file_attachment: :blob], [:user], [:taggings]).page(params[:page]).where(user_id: @user.id)
+      @posts.page(params[:page]).reverse_order
       render "posts/index"
     end
   end
@@ -17,8 +19,8 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       post = Post.find_by(user_id: current_user.id)
-      redirect_to post_path(post) if post.present?  # 1件でも投稿しているユーザーは自身の投稿詳細へリダイレクト
-      redirect_to user_path(@user) if post.blank?   # 投稿が一件もないユーザーはマイページへリダイレクト
+      redirect_to post_path(post) if post.present?
+      redirect_to user_path(@user) if post.blank?
     else
       render "edit"
     end

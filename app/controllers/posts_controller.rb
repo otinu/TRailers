@@ -9,9 +9,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page]).reverse_order
-    if params[:tag_name]
-      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).reverse_order
+    @posts = Post.includes([post_file_attachment: :blob], [:user], [:taggings]).page(params[:page]).reverse_order
+    if params[:taggings]
+      @posts = Post.tagged_with("#{params[:taggings]}").includes([post_file_attachment: :blob], [:user], [:taggings]).page(params[:page]).reverse_order
     end
   end
 
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
 
   def search
     posts = Post.search_for(params[:keyword])
-    @posts = posts.page(params[:page]).reverse_order
+    @posts = posts.includes([post_file_attachment: :blob], [:user], [:taggings]).page(params[:page]).reverse_order
     render "index"
   end
 
