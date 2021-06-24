@@ -14,7 +14,7 @@ describe '投稿のテスト' do
     end
     it "投稿後、投稿一覧を確認" do
       new_post(post)
-      expect(page).to have_link "Ruby", href: posts_path(tag_name: "Ruby")
+      expect(page).to have_link "Ruby", href: posts_path(taggings: "Ruby")
       expect(page).to have_selector("img[src$='lens.jpeg']")
       expect(page).to have_content "【ジャンル】Ruby"
       link = find(".goods-create")
