@@ -32,7 +32,17 @@ $(document).on('turbolinks:load',function(){
   });
 });
 
-/*================= ユーザー詳細ページ ================= */
+/*================= 投稿詳細 ================= */
+
+$(document).on('turbolinks:load',function(){
+  $(".enlarge-it").on("click", function(event) {
+    $(this).toggleClass("active"); //クリックされたら、activeクラスが追加・削除される。 activeクラスは67～74行目前後に記述あり。
+    $("#enlarge").fadeToggle(500); //第一引数に数字を指定することでフェードする速さが変化する。
+    event.preventDefault();
+  });
+});
+
+/*============== ユーザー詳細ページ ============= */
 
 $(document).on('turbolinks:load',function(){
   $('.mine-comment').hide();

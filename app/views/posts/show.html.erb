@@ -29,7 +29,7 @@
 </div>
 
 <div class="col offset-sm-2 mt-5 px-0 px-sm-2">
- <h3>【<%= @post.title %>】</h3>
+ <h4>【<%= @post.title %>】</h4>
 </div>
 <div class="post-show-image">
  <%= render partial: 'posts/post_image_show', locals: { post: @post } %>
@@ -42,3 +42,7 @@
  <% end %>
 </div>
 <textarea class="post-show-explanation"><%= @post.explanation %></textarea>
+
+<div id="enlarge" class="w-100">
+ <%= render partial: 'posts/post_image_show_fade', locals: { post: @post } %>
+</div>

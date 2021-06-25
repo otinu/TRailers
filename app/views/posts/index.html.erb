@@ -11,6 +11,7 @@
       <%= render partial: 'posts/post_image_index', locals: { posts: @posts } %>
     </tbody>
    </table>
+   <%= paginate @posts %>
   </div>
  </div>
 </div>

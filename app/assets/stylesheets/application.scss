@@ -215,3 +215,29 @@ footer {
     margin-left: 10%;
   }
 } /* @media */
+
+#enlarge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+}
+#enlarge img,
+#enlarge video,
+#enlarge iframe {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5vh;
+}
+
+#enlarge img:hover {
+  transform: scale(1.5);
+}
+
+.enlarge-end {
+  position: fixed;
+  top: 1vh;
+}
