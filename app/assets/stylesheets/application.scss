@@ -26,7 +26,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-//* ================ Main ==================================
+//* ================ Main ===================================
 
 main {
   min-height: 100vh;
@@ -64,6 +64,65 @@ iframe {
   height: 55vh;
 }
 
+//* =============== Footer =================================
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.footer {
+  color: #196989;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+//* =============== サインイン/サインアップページ =========
+
+.google-icon {
+  margin-left: 5%;
+}
+
+.github-icon {
+  margin-left: 5%;
+}
+
+//* =============== Topページ =============================
+
+
+.top_container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: -1rem;
+  padding: 0 0 0 5%;
+  background-image: linear-gradient(#196989, #a6ce39);
+}
+
+.top_icon {
+  padding-top: 20vh;
+  text-align: center;
+  color: #a6ce39;
+}
+
+//* =============== 投稿一覧(Topスクロール) ================
+#arrow_top {
+    position: fixed;
+    right: 5vh;
+    bottom: 1vh;
+  }
+
+//* =============== 投稿詳細 ===============================
+
 .post-show-image {
   margin-left: 20vw;
   padding: 0;
@@ -78,13 +137,43 @@ iframe {
     margin: 0 19vw;
   }
 
-.google-icon {
-  margin-left: 5%;
+.mine-icon-area {
+  position: relative;
 }
 
-.github-icon {
-  margin-left: 5%;
+.mine-comment {
+  position: absolute;
+  width: 30vw;
+  height: 4vh;
+  right: 6.5vw;
+  bottom: 7.5vh;
+  text-align: center;
+  padding-top: 1vh;
 }
+
+.others-comment {
+  position: absolute;
+  width: 30vw;
+  height: 4vh;
+  left: 25vw;
+  bottom: 7.5vh;
+  text-align: center;
+  padding-top: 1vh;
+}
+
+//* =============== ハンバーガーメニュー ====================
+
+.navbar-dark .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(166, 206, 57, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* 三本線 */
+}
+
+.navbar-dark .navbar-toggler{
+  border-color: rgba(166, 206, 57, 1); /* 枠線 */
+}
+
+
+
+//* =============== @media ===============
 
 
 @media (max-width: 700px) {
@@ -125,63 +214,4 @@ iframe {
   .github-icon {
     margin-left: 10%;
   }
-}
-
-//* =============== Top =====================================
-
-
-.top_container {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  margin-top: -1rem;
-  padding: 0 0 0 5%;
-  background-image: linear-gradient(#196989, #a6ce39);
-}
-
-.top_icon {
-  padding-top: 20vh;
-  text-align: center;
-  color: #a6ce39;
-}
-
-
-//* =============== Footer ==================================
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
-
-.footer {
-  color: #196989;
-  text-align: center;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
-
-//* =============== 投稿一覧(Topスクロール) =========================
-#arrow_top {
-    position: fixed;
-    right: 5vh;
-    bottom: 1vh;
-  }
-
-//* =============== ハンバーガーメニュー ====================
-
-.navbar-dark .navbar-toggler-icon{
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(166, 206, 57, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* 三本線 */
-}
-
-.navbar-dark .navbar-toggler{
-  border-color: rgba(166, 206, 57, 1); /* 枠線 */
-}
-
+} /* @media */

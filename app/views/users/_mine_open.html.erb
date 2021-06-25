@@ -1,3 +1,5 @@
+<small class="mine-comment"><%= I18n.t("Keep your Goods number private") %></small>
+<small class="others-comment"><%= I18n.t("Keep everyone's Goods number private") %></small>
 <% if current_user.mine_open == true %>
   <%= link_to count_view_mine_users_path(current_user, user: {mine_open: false}), method: :patch, class: "mine-open" do %>
     <i class="fa-solid fa-display-slash fa-3x mt-4" style="color: #a6ce39;"></i>
