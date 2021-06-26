@@ -37,3 +37,4 @@ ja:
   daily_mailer:
     confirmation:
       subject:  "TRailersへ投稿のお忘れはありませんか。"
+      

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do |number|
+2.times do |number|
   user = User.create(name: "Administrator",
                     email: Faker::Internet.email,
                     mine_open: Faker::Boolean.boolean(true_ratio: 1),
