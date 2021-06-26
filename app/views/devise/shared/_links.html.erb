@@ -3,7 +3,7 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% sns = "Sign in with #{OmniAuth::Utils.camelize(provider)}" %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), method: :post do %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), method: :post, style: "text-decoration: none;" do %>
       <% if sns == "Sign in with Twitter" %>
         <i class="fa-brands fa-twitter-square fa-2x" style="color: #a6ce39;"></i>
       <% elsif sns == "Sign in with Google" %>

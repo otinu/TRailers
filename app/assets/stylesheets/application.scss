@@ -19,14 +19,14 @@
 @import 'font-awesome';
 
 
-//* ================ リセットCSS ============================
+//* ================ リセットCSS ============================ *//
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-//* ================ Main ===================================
+//* ================ Main =================================== *//
 
 main {
   min-height: 100vh;
@@ -34,7 +34,7 @@ main {
 }
 
 
-//* =============== Body ====================================
+//* =============== Body ==================================== *//
 
 body {
   position: relative;
@@ -64,7 +64,7 @@ iframe {
   height: 55vh;
 }
 
-//* =============== Footer =================================
+//* =============== Footer ================================= *//
 footer {
   position: absolute;
   bottom: 0;
@@ -86,7 +86,7 @@ footer {
     top: 0;
 }
 
-//* =============== サインイン/サインアップページ =========
+//* =============== サインイン/サインアップページ ========= *//
 
 .google-icon {
   margin-left: 5%;
@@ -96,7 +96,7 @@ footer {
   margin-left: 5%;
 }
 
-//* =============== Topページ =============================
+//* =============== Topページ ============================= *//
 
 
 .top_container {
@@ -114,14 +114,14 @@ footer {
   color: #a6ce39;
 }
 
-//* =============== 投稿一覧(Topスクロール) ================
+//* =============== 投稿一覧(Topスクロール) ================ *//
 #arrow_top {
     position: fixed;
     right: 5vh;
     bottom: 1vh;
   }
 
-//* =============== 投稿詳細 ===============================
+//* =============== 投稿詳細 =============================== *//
 
 .post-show-image {
   margin-left: 20vw;
@@ -161,34 +161,62 @@ footer {
   padding-top: 1vh;
 }
 
-//* =============== ハンバーガーメニュー ====================
+#enlarge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+}
+#enlarge img,
+#enlarge video,
+#enlarge iframe {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5vh;
+}
+
+
+#enlarge img:hover {
+  transform: scale(5);
+}
+
+
+.enlarge-end {
+  position: fixed;
+  top: 1vh;
+}
+
+//* =============== ハンバーガーメニュー ==================== *//
 
 .navbar-dark .navbar-toggler-icon{
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(166, 206, 57, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* 三本線 */
 }
 
 .navbar-dark .navbar-toggler{
-  border-color: rgba(166, 206, 57, 1); /* 枠線 */
+  border-color: rgba(166, 206, 57, 1);
 }
 
 
 
-//* =============== @media ===============
+//* =============== @media =============== *//
 
 
 @media (max-width: 700px) {
   .post-photo {
-    width: 100vw;
+    width: 100%;
     height: 50vh;
   }
 
   video {
-    width: 100vw;
+    width: 100%;
     height: 40vh;
   }
 
   iframe {
-    width: 100vw;
+    width: 100%;
     height: 50vh;
   }
 
@@ -209,35 +237,11 @@ footer {
 @media (max-width: 400px) {
   .google-icon {
   margin-left: 10%;
+  text-decoration: none;
 }
 
   .github-icon {
     margin-left: 10%;
+    text-decoration: none;
   }
 } /* @media */
-
-#enlarge {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: white;
-  width: 100%;
-  min-height: 100%;
-  display: none;
-}
-#enlarge img,
-#enlarge video,
-#enlarge iframe {
-  display: block;
-  margin: 0 auto;
-  margin-top: 5vh;
-}
-
-#enlarge img:hover {
-  transform: scale(1.5);
-}
-
-.enlarge-end {
-  position: fixed;
-  top: 1vh;
-}

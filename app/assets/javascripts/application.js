@@ -36,11 +36,80 @@ $(document).on('turbolinks:load',function(){
 
 $(document).on('turbolinks:load',function(){
   $(".enlarge-it").on("click", function(event) {
-    $(this).toggleClass("active"); //クリックされたら、activeクラスが追加・削除される。 activeクラスは67～74行目前後に記述あり。
-    $("#enlarge").fadeToggle(500); //第一引数に数字を指定することでフェードする速さが変化する。
+    $(this).toggleClass("active");
+    $("#enlarge").fadeToggle(500);
     event.preventDefault();
   });
 });
+
+    window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('enlarge-touch').addEventListener('touchstart', function() {
+      this.animate(
+        {
+          transform: [
+            'scale(1)',
+            'scale(5)'
+          ]
+        },
+        {
+          duration: 1000,
+          fill: 'forwards',
+          easing: 'ease'
+        }
+      );
+    });
+    document.getElementById('enlarge-touch').addEventListener('touchend', function() {
+      this.animate(
+        {
+          transform: [
+            'scale(5)',
+            'scale(1)'
+          ]
+        },
+        {
+          duration: 1000,
+          fill: 'forwards',
+          easing: 'ease'
+        }
+      );
+    });
+  });
+
+
+
+
+
+  window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('enlarge').addEventListener('touchstart', function() {
+      const image = document.getElementById('enlarge-touch');
+      let touchObject = event.changedTouches[0];
+      let x = touchObject.clientX;
+  	  let y = touchObject.clientY;
+      image.style.marginTop = y + "px";
+      image.style.marginLeft = x + "px";
+      image.style.marginRight = 0;
+      image.style.marginBottom = 0;
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('enlarge').addEventListener('click', function(event) {
+      const image = document.getElementById('enlarge-touch');
+      image.style.marginTop = event.clientY + "px";
+      image.style.marginLeft = event.clientX + "px";
+      image.style.marginRight = 0;
+      image.style.marginBottom = 0;
+    });
+  });
+
+
+
+
+
+
+
+
+
 
 /*============== ユーザー詳細ページ ============= */
 
