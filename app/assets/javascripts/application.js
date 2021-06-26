@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require_tree .
 
+/*================= 投稿一覧 ================= */
 
 $(document).on('turbolinks:load',function(){
   $('#arrow_top').on('click',function(event){
@@ -27,5 +28,38 @@ $(document).on('turbolinks:load',function(){
       scrollTop:0
     }, 800);
     event.isDefaultPrevented();
+  });
+});
+
+/*================= 投稿詳細 ================= */
+
+$(document).on('turbolinks:load',function(){
+  $(".enlarge-it").on("click", function(event) {
+    $(this).toggleClass("active");
+    $("#enlarge").fadeToggle(500);
+    event.preventDefault();
+  });
+});
+  
+
+/*============== ユーザー詳細ページ ============= */
+
+$(document).on('turbolinks:load',function(){
+  $('.mine-comment').hide();
+  $('.mine-open').mouseover(function(){
+    $('.mine-comment').css({'display': ''});
+  });
+  $('.mine-open').mouseout(function(){
+    $('.mine-comment').css({'display': 'none'});
+  });
+});
+
+$(document).on('turbolinks:load',function(){
+  $('.others-comment').hide();
+  $('.others-open').mouseover(function(){
+    $('.others-comment').css({'display': ''});
+  });
+  $('.others-open').mouseout(function(){
+    $('.others-comment').css({'display': 'none'});
   });
 });

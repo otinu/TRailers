@@ -1,0 +1,12 @@
+<% unless rails_blob_path(post.post_file).match(/\.mp4/) || rails_blob_path(post.post_file).match(/\.pdf/) %>
+ <%= image_tag post.post_file, alt: '画像', id: "enlarge-touch" %>
+ <i class="fa-solid fa-circle-xmark fa-5x ml-5 enlarge-it enlarge-end" style="color: #a6ce39;"></i>
+<% end %>
+<% if rails_blob_path(post.post_file).match(/\.mp4/) %>
+ <video src="<%= rails_blob_path(post.post_file) %>" controls></video>
+ <i class="fa-solid fa-circle-xmark fa-5x ml-5 enlarge-it enlarge-end" style="color: #a6ce39;"></i>
+<% end %>
+<% if rails_blob_path(post.post_file).match(/\.pdf/) %>
+ <iframe src="<%= rails_blob_path(post.post_file) %>"></iframe>
+ <i class="fa-solid fa-circle-xmark fa-5x ml-5 enlarge-it enlarge-end" style="color: #a6ce39;"></i>
+<% end %>
