@@ -36,8 +36,6 @@ describe '投稿のテスト' do
       expect(page).to have_selector("img[src$='lens.jpeg']")
       link = find(".goods-create")
       expect(link[:href]).to eq post_goods_path(1)
-      link = find(".post-glass")
-      expect(link[:href]).to eq post_path(1)
       expect(page).to have_content post.explanation
       # 自身の投稿には投稿編集と投稿削除ボタンが表示
       link = find(".post-edit")
