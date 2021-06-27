@@ -137,30 +137,6 @@ footer {
     margin: 0 19vw;
   }
 
-.mine-icon-area {
-  position: relative;
-}
-
-.mine-comment {
-  position: absolute;
-  width: 30vw;
-  height: 4vh;
-  right: 6.5vw;
-  bottom: 7.5vh;
-  text-align: center;
-  padding-top: 1vh;
-}
-
-.others-comment {
-  position: absolute;
-  width: 30vw;
-  height: 4vh;
-  left: 25vw;
-  bottom: 7.5vh;
-  text-align: center;
-  padding-top: 1vh;
-}
-
 #enlarge {
   position: fixed;
   top: 0;
@@ -181,6 +157,31 @@ footer {
   position: fixed;
   top: 1vh;
 }
+//* =============== ユーザー詳細ページ ==================== *//
+
+.mine-icon-area {
+  position: relative;
+}
+
+.mine-comment {
+  position: absolute;
+  width: 30vw;
+  height: 4vh;
+  right: 20%;
+  bottom: 80%;
+  text-align: center;
+  padding-top: 1vh;
+}
+
+.others-comment {
+  position: absolute;
+  width: 30vw;
+  height: 4vh;
+  left: 90%;
+  bottom: 80%;
+  text-align: center;
+  padding-top: 1vh;
+}
 
 //* =============== ハンバーガーメニュー ==================== *//
 
@@ -194,7 +195,7 @@ footer {
 
 
 
-//* =============== @media =============== *//
+//* =============== @media 700 =============== *//
 
 
 @media (max-width: 700px) {
@@ -226,6 +227,8 @@ footer {
     margin-left: 18vw;
   }
 } /* @media */
+
+//* =============== @media 400 =============== *//
 
 @media (max-width: 400px) {
   .google-icon {
