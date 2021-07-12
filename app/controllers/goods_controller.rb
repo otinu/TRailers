@@ -6,7 +6,7 @@ class GoodsController < ApplicationController
 
     # 通知機能の作成
     post = Post.find(params[:post_id])
-    post.create_notification_goods(current_user)
+    post.create_notification_goods(current_user, post.user.id, post.id)
   end
 
   def destroy
