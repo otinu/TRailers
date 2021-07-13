@@ -24,11 +24,21 @@
             <%= f.label :remember_me %>
           </div>
         <% end %>
+        </div>
 
+        <div class="col-2 offset-1">
         <div class="form-group actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit I18n.t("Log in") %>
+        </div>
         </div>
       <% end %>
+      <div class="col">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+       <%= f.hidden_field :email, :value => User.find_by(id: 2).email %>
+       <%= f.hidden_field :password, :value => "#{ENV['GUEST_PASSWORD']}" %>
+       <%= f.submit I18n.t("Guest"), class: "bg-success" %>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>

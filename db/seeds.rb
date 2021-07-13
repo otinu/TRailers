@@ -13,12 +13,12 @@
                     others_open: Faker::Boolean.boolean(true_ratio: 1),
                     password: "#{ENV['ADMIN_PASSWORD']}",
                     password_confirmation: "#{ENV['ADMIN_PASSWORD']}") if number == 0
-  user = User.create(name: Faker::Name.middle_name,
+  user = User.create(name: "Guest",
                     email: Faker::Internet.email,
                     mine_open: Faker::Boolean.boolean(true_ratio: 1),
                     others_open: Faker::Boolean.boolean(true_ratio: 1),
-                    password: 'password',
-                    password_confirmation: 'password') unless number == 0
+                    password: "#{ENV['GUEST_PASSWORD']}",
+                    password_confirmation: "#{ENV['GUEST_PASSWORD']}")
 
   image_url = Faker::Avatar.image(slug: user.email, size: '50x50')
   # ActiveStorageを使ってavatarを設定
