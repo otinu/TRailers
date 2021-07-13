@@ -24,10 +24,10 @@ class Post < ApplicationRecord
     where(["title like? OR explanation like?", "%#{keyword}%", "%#{keyword}%"])
   end
 
-  def create_notification_goods(user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ? ", user.id, user_id, id, 'Goods'])
+  def create_notification_goods(current_user, post_owner, post)
+    temp = Notification.where(visiter_id: current_user.id, visited_id: post_owner, post_id: post, action: "Goods")
     if temp.blank?
-      notification = user.active_notifications.new(post_id: id, visited_id: user_id, action: 'Goods')
+      notification = current_user.active_notifications.new(post_id: post, visited_id: post_owner, action: 'Goods')
       if notification.visiter_id == notification.visited_id
         notification.checked = true
       end

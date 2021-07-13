@@ -11,10 +11,9 @@ class Chat < ApplicationRecord
 
   def self.make_notification(companion, current_user)
     user = User.find(companion)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ", current_user, companion, 'Chat'])
+    temp = Notification.where(visiter_id: current_user, visited_id: companion, action: "Chat")
     if temp.blank?
-      notification = user.passive_notifications.new(visiter_id: current_user, action: 'Chat')
-      notification.save
+      user.passive_notifications.create(visiter_id: current_user, action: 'Chat')
     end
   end
 end
