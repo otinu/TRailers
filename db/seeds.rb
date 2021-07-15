@@ -6,22 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-2.times do |number|
+3.times do |number|
   user = User.create(name: "Administrator",
                     email: Faker::Internet.email,
                     mine_open: Faker::Boolean.boolean(true_ratio: 1),
                     others_open: Faker::Boolean.boolean(true_ratio: 1),
                     password: "#{ENV['ADMIN_PASSWORD']}",
-                    password_confirmation: "#{ENV['ADMIN_PASSWORD']}") if number == 0
+                    password_confirmation: "#{ENV['ADMIN_PASSWORD']}")
   user = User.create(name: "Guest",
                     email: Faker::Internet.email,
                     mine_open: Faker::Boolean.boolean(true_ratio: 1),
                     others_open: Faker::Boolean.boolean(true_ratio: 1),
                     password: "#{ENV['GUEST_PASSWORD']}",
                     password_confirmation: "#{ENV['GUEST_PASSWORD']}")
+  user = User.create(name: "Tester",
+                    email: "test@t.com",
+                    mine_open: Faker::Boolean.boolean(true_ratio: 1),
+                    others_open: Faker::Boolean.boolean(true_ratio: 1),
+                    password: "tttttt",
+                    password_confirmation: "tttttt")
 
   image_url = Faker::Avatar.image(slug: user.email, size: '50x50')
-  # ActiveStorageを使ってavatarを設定
   user.profile_image.attach(io: URI.parse(image_url).open, filename: 'avatar.png')
 end
 
@@ -55,3 +60,15 @@ end
 
   post.save(validate: false)
 end
+
+Chat.create(user_id: 1, room_id: 1, message: :Hello)
+Good.create(post_id: 1, user_id: 3)
+Notification.create(visited_id: 3, visiter_id: 1, post_id: 1, action: "Chat", checked: false)
+Notification.create(visited_id: 3, visiter_id: 1, post_id: 1, action: "Goods", checked: false)
+UserRoom.create(user_id: 1, room_id: 1)
+UserRoom.create(user_id: 3, room_id: 1)
+
+Chat.create(user_id: 2, room_id: 2, message: "TRailersへようこそ！")
+Notification.create(visited_id: 2, visiter_id: 1, post_id: 1, action: "Chat", checked: false)
+UserRoom.create(user_id: 1, room_id: 2)
+UserRoom.create(user_id: 2, room_id: 2)
