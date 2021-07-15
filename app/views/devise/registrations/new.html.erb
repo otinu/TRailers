@@ -6,17 +6,17 @@
         <div class="form-group">
           <%= render partial: 'homes/language' %>
         </div>
-      
+
         <div class=form-group>
           <%= f.label :name %><br>
           <%= f.text_field :name, autofocus: true, size: "35" %>
         </div>
-      
+
         <div class=form-group>
           <%= f.label :email %><br>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "35" %>
         </div>
-      
+
         <div class=form-group>
           <%= f.label :password %>
           <% if @minimum_password_length %>
@@ -24,20 +24,20 @@
           <% end %><br>
           <%= f.password_field :password, autocomplete: "new-password", size: "35" %>
         </div>
-      
+
         <div class=form-group>
           <%= f.label :password_confirmation %><br>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "35" %>
         </div>
-      
+
         <div class=form-group>
           <%= f.check_box :mine_open, { checked: false } %>
           <%= link_to I18n.t("TOS"), controller: "/homes", action: "about" %>
         </div>
         <%= f.hidden_field :others_open, :value => true %>
-      
+
         <div class="actions">
-          <%= f.submit "Sign up" %>
+          <%= f.submit I18n.t("Sign up") %>
         </div>
       <% end %>
     </div>
