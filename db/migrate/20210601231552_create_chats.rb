@@ -4,8 +4,9 @@ class CreateChats < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.integer :room_id, null: false
       t.string :message
-
       t.timestamps
     end
+    add_foreign_key :chats, :users
+    add_foreign_key :chats, :rooms
   end
 end
