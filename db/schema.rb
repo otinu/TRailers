@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visiter_id"], name: "index_notifications_on_visiter_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -77,7 +79,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "user_rooms", force: :cascade do |t|

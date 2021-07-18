@@ -16,7 +16,7 @@ AddMissingUniqueIndices.class_eval do
   end
 
   def self.down
-    remove_index ActsAsTaggableOn.tags_table, :name
+   # remove_index ActsAsTaggableOn.tags_table, :name
 
     remove_index ActsAsTaggableOn.taggings_table, name: 'taggings_idx'
 
