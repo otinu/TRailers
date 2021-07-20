@@ -28,7 +28,6 @@ class User < ApplicationRecord
 
   def self.find_omniauth(auth)
     begin
-      binding.pry
       sns_credentials = SnsCredential.find_by(uid: auth.uid, provider: auth.provider)
       if sns_credentials.blank?
         if User.find_by(email: auth.info.email).present?
