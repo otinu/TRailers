@@ -12,7 +12,7 @@
             <%= "　To【#{ notification.post.title }】" %>
           <% end %>
         </p>
-        <% notification.checked = true %>
+        <% notification.checked = true unless current_user.id == 2 || 3 %>
         <% notification.save %>
       <% end %>
     </td>
