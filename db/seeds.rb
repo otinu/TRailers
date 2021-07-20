@@ -61,14 +61,17 @@ end
   post.save(validate: false)
 end
 
-Chat.create(user_id: 1, room_id: 1, message: :Hello)
+2.times do |number|
+  Room.create
+end
+Chat.create(user_id: 1, room_id: 1, message: :Hello_Tester)
 Good.create(post_id: 1, user_id: 3)
 Notification.create(visited_id: 3, visiter_id: 1, post_id: 1, action: "Chat", checked: false)
 Notification.create(visited_id: 3, visiter_id: 1, post_id: 1, action: "Goods", checked: false)
 UserRoom.create(user_id: 1, room_id: 1)
 UserRoom.create(user_id: 3, room_id: 1)
 
-Chat.create(user_id: 2, room_id: 2, message: "TRailersへようこそ！")
+Chat.create(user_id: 1, room_id: 2, message: "TRailersへようこそ！")
 Notification.create(visited_id: 2, visiter_id: 1, post_id: 1, action: "Chat", checked: false)
 UserRoom.create(user_id: 1, room_id: 2)
 UserRoom.create(user_id: 2, room_id: 2)
