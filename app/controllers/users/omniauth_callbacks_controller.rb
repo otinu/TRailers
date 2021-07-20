@@ -27,7 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         "https://1c0a9f1bb1464501b731b30338cf8bf2.vfs.cloud9.ap-northeast-1.amazonaws.com" && return
       else
         flash[:notice] = error
-        "http://trailers.work" && return
+        "https://trailers.work" && return
       end
     end
   end
