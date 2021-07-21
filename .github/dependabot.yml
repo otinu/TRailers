@@ -5,9 +5,9 @@
 
 version: 2
 updates:
-    package-ecosystem: "bundler"
+  - package-ecosystem: "bundler"
     directory: "/"
-    target-branch: "auto-gem-update"
+    target-branch: "dependabot"
     open-pull-requests-limit: 10
     versioning-strategy: increase
     schedule:
