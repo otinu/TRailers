@@ -13,4 +13,4 @@ updates:
     schedule:
       interval: "daily"
       timezone: "Asia/Tokyo"
-      time: "11:30"
+      time: "11:15"
