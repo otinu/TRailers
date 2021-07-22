@@ -13,7 +13,6 @@ updates:
     schedule:
       interval: "daily"
       timezone: "Asia/Tokyo"
-      time: "11:15"
     ignore:
       - dependency-name: "rails"
         versions: ["5.x"]
