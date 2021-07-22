@@ -130,7 +130,7 @@ TRailersはTwitterやFacebookといった**SNSよりも軽いコミュニケー�
 - JS ライブラリ：jQuery
 - IDE：AWS Cloud9, Visual Studio Code
 - CI/CDツール： GitHub Actions
-- パッケージ依存関係 自動監視: GitHub Dependabot
+- パッケージ依存関係 自動監視： GitHub Dependabot
 - TLS証明発行元： Let's Encrypt(Certbot 使用)
 - AWS<br>
 　**EC2**<br>
