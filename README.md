@@ -72,7 +72,7 @@ TRailersはTwitterやFacebookといった**SNSよりも軽いコミュニケー�
 <details><summary>実装機能(詳細版)</summary>
 
 1.  ユーザー認証(gem 'devise')
-1.  CRUD機能(投稿コントローラで new,create,index,show,edit,update,destroyアクションを導入)
+1.  CRUD機能(投稿コントローラにて、new,create,index,show,edit,update,destroy 導入)
 1.  画像・動画・PDF投稿機能(ActiveStrage)
 1.  タグ付け(gem 'acts-as-taggable-on')
 1.  キーワード検索
