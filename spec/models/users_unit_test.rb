@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe '【Max Red7】 Userモデルのテスト', type: :model do
+describe 'Userモデルのテスト', type: :model do
   before do
     @user = FactoryBot.build(:user)
   end
