@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe '投稿のテスト' do
-  let!(:user) { FactoryBot.build(:user) }
+  let!(:user) { FactoryBot.build(:user, :first) }
   let!(:post) { FactoryBot.build(:post) }
 
   before do
