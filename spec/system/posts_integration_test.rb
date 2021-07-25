@@ -11,6 +11,7 @@ describe '投稿のテスト' do
   context "投稿関連機能を確認" do
     it "新規投稿に成功する" do
       new_post(post)  # PostSupportモジュールから呼び出し
+      find('.fa-hand-point-up')
     end
     it "投稿後、投稿一覧を確認" do
       new_post(post)
