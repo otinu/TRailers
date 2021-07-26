@@ -28,7 +28,7 @@ describe 'ユーザー情報のテスト' do
 end
 
 describe "ユーザー詳細のテスト" do
-  let!(:user) { FactoryBot.build(:user) }
+  let!(:user) { FactoryBot.build(:user, :first) }
   let!(:post) { FactoryBot.build(:post) }
 
   before do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Goodsボタンのテスト' do
-let!(:user) { FactoryBot.build(:user) }
+let!(:user) { FactoryBot.build(:user, :first) }
 let!(:post) { FactoryBot.build(:post) }
 
   before "ログイン後、テスト投稿をする" do
@@ -9,20 +9,21 @@ let!(:post) { FactoryBot.build(:post) }
     new_post(post)
     expect(page).to have_content "【ジャンル】Ruby"
   end
-  
-  it "投稿一覧ページでのGoodsボタン動作確認" do
-    within "div#1" do
-      find('.fa-hand-holding-heart').click
-      expect("div#1").to have_text '1' 
+  context "Goodsボタンの動作確認" do
+    it "投稿一覧ページ" do
+      within "div#1" do
+        find('.fa-hand-holding-heart').click
+        expect("div#1").to have_text '1' 
+      end
     end
-  end
-  it "投稿詳細ページでのGoodsボタン動作確認" do
-    within "div#1" do
-        find('.post-glass').click
-    end
-     within "div#1" do
-      find('.fa-hand-holding-heart').click
-      expect("div#1").to have_text '1' 
+    it "投稿詳細ページ" do
+      within "div#1" do
+          find('.post-glass').click
+      end
+       within "div#1" do
+        find('.fa-hand-holding-heart').click
+        expect("div#1").to have_text '1' 
+      end
     end
   end
 end
