@@ -6,7 +6,7 @@ module NewPostSupport
     select "Ruby", from: "post[tag_list]"
     attach_file("post[post_file]", "#{Rails.root}/spec/fixtures/lens.jpeg")
     fill_in "post[explanation]", with: post.explanation
-    expect { click_button "登録する" }.to change(Post.all, :count).by(1)
+    click_button "登録する"
   end
 
   def create_and_skip_show(post)
