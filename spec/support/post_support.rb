@@ -11,8 +11,6 @@ module NewPostSupport
 
   def create_and_skip_show(post)
     new_post(post)
-    within "div#1" do
-      find('.post-glass').click
-    end
+    find('.post-glass').click
   end
 end
