@@ -7,6 +7,6 @@ module SignupSupport
     fill_in 'user[password_confirmation]', with: user.password
     check 'user[mine_open]'
     click_button '新規登録'
-    
+
   end
 end
