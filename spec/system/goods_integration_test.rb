@@ -11,19 +11,12 @@ let!(:post) { FactoryBot.build(:post) }
   end
   context "Goodsボタンの動作確認" do
     it "投稿一覧ページ" do
-      within "div#1" do
-        find('.fa-hand-holding-heart').click
-        expect("div#1").to have_text '1' 
-      end
+      find('.fa-hand-holding-heart').click
     end
     it "投稿詳細ページ" do
-      within "div#1" do
-          find('.post-glass').click
-      end
-       within "div#1" do
-        find('.fa-hand-holding-heart').click
-        expect("div#1").to have_text '1' 
-      end
+      find('.post-glass').click
+      find('.fa-hand-holding-heart').click
+      expect("div#1").to have_text '1' 
     end
   end
 end
