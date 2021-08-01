@@ -40,8 +40,15 @@ let!(:user) { FactoryBot.build(:user, :first) }
       find_button '更新する'
     end
     it "新規投稿画面" do
-
+      sign_up_as(user)
+      visit new_post_path
+      expect(page).to have_selector 'div label', text: '投稿名'
+      expect(page).to have_selector 'div label', text: '投稿ファイル'
+      expect(page).to have_selector 'div label', text: 'ジャンル'
+      expect(page).to have_selector 'div label', text: '投稿へのコメント'
+      find_button '登録する'
     end
+   
     
   end
 end
