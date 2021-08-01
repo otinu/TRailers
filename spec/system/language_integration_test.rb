@@ -31,6 +31,17 @@ let!(:user) { FactoryBot.build(:user, :first) }
       expect(page).to have_selector 'th', text: '投稿を編集する'
       expect(page).to have_selector 'th', text: '投稿を削除する'
     end
+    it "ユーザー情報編集画面" do
+      sign_up_as(user)
+      visit edit_user_path(user)
+      expect(page).to have_selector 'div label', text: '名前'
+      expect(page).to have_selector 'div label', text: 'プロフィール画像'
+      expect(page).to have_selector 'div label', text: '自己紹介'
+      find_button '更新する'
+    end
+    it "新規投稿画面" do
+
+    end
     
   end
 end
