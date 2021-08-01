@@ -1,0 +1,32 @@
+require 'rails_helper'
+
+describe 'Goodsボタンのテスト' do
+let!(:user) { FactoryBot.build(:user, :first) }
+
+  context "日本語表記の確認" do
+    it "サインイン画面" do
+      visit new_user_session_path
+      expect(page).to have_selector 'div.form-group', text: 'メールアドレス'
+      expect(page).to have_selector 'div.form-group', text: 'パスワード'
+      expect(page).to have_selector 'div.form-group', text: '次回から自動的にログイン'
+      expect(page).to have_selector 'div.form-group', text: 'ログイン'
+      expect(page).to have_selector 'div a', text: '新規登録'
+      expect(page).to have_selector 'div a', text: 'パスワード再発行'
+    end
+    it "サインアップ画面" do
+      visit new_user_registration_path
+      expect(page).to have_selector 'div label', text: '名前'
+      expect(page).to have_selector 'div label', text: 'メールアドレス'
+      expect(page).to have_selector 'div label', text: 'パスワード'
+      expect(page).to have_selector 'div label', text: '確認用パスワード'
+      expect(page).to have_selector 'div label', text: 'メールアドレス'
+      expect(page).to have_selector 'div a', text: '利用規約'
+      find_button '新規登録'
+      expect(page).to have_selector 'div', text: 'ログイン'
+    end
+     it "" do
+    
+    end
+    
+  end
+end

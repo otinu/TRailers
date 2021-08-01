@@ -32,7 +32,7 @@
         </div>
       <% end %>
       <% unless Rails.env == "test" %>
-        <div class="col-1 offset-3 offset-sm-0 offset-lg-0">
+        <div class="col-1 offset-3 offset-sm-0 offset-lg-0 guest">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
            <%= f.hidden_field :email, :value => User.find_by(id: 2).email %>
            <%= f.hidden_field :password, :value => "#{ENV['GUEST_PASSWORD']}" %>
