@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'Goodsボタンのテスト' do
 let!(:user) { FactoryBot.build(:user, :first) }
+let!(:post) { FactoryBot.build(:post) }
 
   context "日本語表記の確認" do
     it "サインイン画面" do
@@ -25,7 +26,7 @@ let!(:user) { FactoryBot.build(:user, :first) }
       expect(page).to have_selector 'div', text: 'ログイン'
     end
      it "ユーザー詳細画面" do
-      sign_up_as(user)
+      sign_up_as(user) # SignupSupportモジュールから呼び出し
       visit user_path(user)
       expect(page).to have_selector 'th', text: '投稿名'
       expect(page).to have_selector 'th', text: '投稿を編集する'
@@ -48,7 +49,16 @@ let!(:user) { FactoryBot.build(:user, :first) }
       expect(page).to have_selector 'div label', text: '投稿へのコメント'
       find_button '登録する'
     end
-   
+    it "投稿編集画面" do
+      sign_up_as(user)
+      new_post(post)
+      find('.post-glass').click
+      find('.fa-file-pen').click
+      expect(page).to have_selector 'div label', text: '投稿名'
+      expect(page).to have_selector 'div label', text: '投稿ファイル'
+      expect(page).to have_selector 'div label', text: '投稿へのコメント'
+      find_button '更新する'
+    end
     
   end
 end
