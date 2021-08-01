@@ -24,8 +24,12 @@ let!(:user) { FactoryBot.build(:user, :first) }
       find_button '新規登録'
       expect(page).to have_selector 'div', text: 'ログイン'
     end
-     it "" do
-    
+     it "ユーザー詳細画面" do
+      sign_up_as(user)
+      visit user_path(user)
+      expect(page).to have_selector 'th', text: '投稿名'
+      expect(page).to have_selector 'th', text: '投稿を編集する'
+      expect(page).to have_selector 'th', text: '投稿を削除する'
     end
     
   end
