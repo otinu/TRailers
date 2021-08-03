@@ -20,7 +20,6 @@ let!(:post) { FactoryBot.build(:post) }
       expect(page).to have_selector 'div label', text: 'メールアドレス'
       expect(page).to have_selector 'div label', text: 'パスワード'
       expect(page).to have_selector 'div label', text: '確認用パスワード'
-      expect(page).to have_selector 'div label', text: 'メールアドレス'
       expect(page).to have_selector 'div a', text: '利用規約'
       find_button '新規登録'
       expect(page).to have_selector 'div', text: 'ログイン'
