@@ -7,9 +7,6 @@ module SigninSupport
       info: {
         :name => Faker::Lorem.characters(number: 10),
         :email => Faker::Internet.email
-      },
-      credentials: {
-        token: 'token'
       }
     )
   end
@@ -21,9 +18,6 @@ module SigninSupport
       info: {
         :name => Faker::Lorem.characters(number: 10),
         :email => Faker::Internet.email
-      },
-      credentials: {
-        token: 'token'
       }
     )
   end
