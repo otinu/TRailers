@@ -19,7 +19,7 @@ FactoryBot.define do
       password_confirmation { 'password' }
     end
     trait :third do
-      id { 9999999 }
+      id { rand(100000000..999999999) }
       name { Faker::Lorem.characters(number: 10)  }
       email { Faker::Internet.email }
       mine_open { Faker::Boolean.boolean(true_ratio: 1) }
