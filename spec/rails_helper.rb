@@ -64,6 +64,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include SignupSupport
+  config.include SigninSupport
   config.include NewPostSupport
   
   config.before(:each) do |example|
@@ -71,5 +72,5 @@ RSpec.configure do |config|
       driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
     end
   end
-
+  
 end
