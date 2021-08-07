@@ -19,6 +19,14 @@ describe "jQueryのテスト" do
     expect(page).to have_button '検索'
   end
   
+  it "投稿一覧画面", type: :system do
+    new_post(post)
+    find(".fa-magnifying-glass").click
+    page.evaluate_script('$(".fa-magnifying-glass").removeClass("fa-solid fa-magnifying-glass fa-2x ml-5 enlarge-it")')
+    find(".fa-magnifying-glass").click
+    find(".fa-circle-xmark")
+  end
+  
   it "ユーザー詳細画面", type: :system do
     visit user_path(user)
     find('.fa-display-slash').hover
