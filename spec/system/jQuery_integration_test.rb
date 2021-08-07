@@ -1,5 +1,6 @@
 require "selenium-webdriver"
 require "rails_helper"
+require 'spec_helper'
 
 describe "jQueryのテスト" do
   let!(:user) { FactoryBot.build(:user, :first) }
@@ -8,7 +9,16 @@ describe "jQueryのテスト" do
   before do
     sign_up_as(user)  # SignupSupportモジュールから呼び出し
   end
-
+  
+  it "ヘッダーの確認" , type: :system do
+    find('.navbar-toggler').click
+    find(".fa-signs-post")
+    find(".fa-user-pilot")
+    find(".fa-hand-wave")
+    find("#keyword")
+    expect(page).to have_button '検索'
+  end
+  
   it "ユーザー詳細画面", type: :system do
     visit user_path(user)
     find('.fa-display-slash').hover
