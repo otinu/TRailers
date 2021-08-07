@@ -8,6 +8,7 @@ module NewPostSupport
     fill_in "post[explanation]", with: post.explanation
     click_button "登録する"
   end
+
   
   def new_english_post(post)
     visit new_post_path
