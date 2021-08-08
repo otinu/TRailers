@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Postモデルのテスト', type: :model do
   before do
     @post = FactoryBot.build(:post)
-    @post.user = FactoryBot.build(:user)
+    @post.user = FactoryBot.build(:user, :first)
     @post.post_file = fixture_file_upload("/lens.jpeg")
   end
   

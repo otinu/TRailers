@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Userモデルのテスト', type: :model do
   before do
-    @user = FactoryBot.build(:user)
+    @user = FactoryBot.build(:user, :first)
   end
   
     it "有効なユーザー情報の場合は保存されるか" do
