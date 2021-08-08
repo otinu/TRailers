@@ -9,7 +9,6 @@ module NewPostSupport
     click_button "登録する"
   end
 
-  
   def new_english_post(post)
     visit new_post_path
     expect(page).to have_content "Comment"

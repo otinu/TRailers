@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Chat送信のテスト' do
-let!(:user) { FactoryBot.build(:user, :first) }
+  let!(:user) { FactoryBot.build(:user, :first) }
 
   it "メッセージの送信", js: true do
     sign_up_as(user)

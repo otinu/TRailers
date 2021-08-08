@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'Goodsボタンのテスト' do
-let!(:user) { FactoryBot.build(:user, :first) }
-let!(:post) { FactoryBot.build(:post) }
+  let!(:user) { FactoryBot.build(:user, :first) }
+  let!(:post) { FactoryBot.build(:post) }
 
   before "英語に切り替え" do
     visit new_user_session_path
@@ -29,7 +29,7 @@ let!(:post) { FactoryBot.build(:post) }
       find_button 'Sign up'
       expect(page).to have_selector 'div', text: 'Log in'
     end
-     it "ユーザー詳細画面" do
+    it "ユーザー詳細画面" do
       sign_up_as_english(user) # SignupSupportモジュールから呼び出し
       visit user_path(user)
       expect(page).to have_selector 'th', text: 'Title'
@@ -55,7 +55,7 @@ let!(:post) { FactoryBot.build(:post) }
     end
     it "投稿編集画面" do
       sign_up_as_english(user)
-      new_english_post(post)  # PostSupportモジュールから呼び出し
+      new_english_post(post) # PostSupportモジュールから呼び出し
       find('.post-glass').click
       find('.fa-file-pen').click
       expect(page).to have_selector 'div label', text: 'Title'
@@ -63,6 +63,5 @@ let!(:post) { FactoryBot.build(:post) }
       expect(page).to have_selector 'div label', text: 'Comment'
       find_button 'Update Post'
     end
-
   end
 end
