@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 describe 'Goodsボタンのテスト' do
-let!(:user) { FactoryBot.build(:user, :first) }
-let!(:post) { FactoryBot.build(:post) }
+  let!(:user) { FactoryBot.build(:user, :first) }
+  let!(:post) { FactoryBot.build(:post) }
 
   context "日本語表記の確認" do
     it "サインイン画面" do
       visit new_user_session_path
+      sleep 2
       expect(page).to have_selector 'div.form-group', text: 'メールアドレス'
       expect(page).to have_selector 'div.form-group', text: 'パスワード'
       expect(page).to have_selector 'div.form-group', text: '次回から自動的にログイン'
@@ -16,6 +17,7 @@ let!(:post) { FactoryBot.build(:post) }
     end
     it "サインアップ画面" do
       visit new_user_registration_path
+      sleep 2
       expect(page).to have_selector 'div label', text: '名前'
       expect(page).to have_selector 'div label', text: 'メールアドレス'
       expect(page).to have_selector 'div label', text: 'パスワード'
@@ -24,7 +26,7 @@ let!(:post) { FactoryBot.build(:post) }
       find_button '新規登録'
       expect(page).to have_selector 'div', text: 'ログイン'
     end
-     it "ユーザー詳細画面" do
+    it "ユーザー詳細画面" do
       sign_up_as(user) # SignupSupportモジュールから呼び出し
       visit user_path(user)
       expect(page).to have_selector 'th', text: '投稿名'
@@ -51,13 +53,14 @@ let!(:post) { FactoryBot.build(:post) }
     it "投稿編集画面" do
       sign_up_as(user)
       new_post(post)
+      sleep 1
       find('.post-glass').click
+      sleep 1
       find('.fa-file-pen').click
       expect(page).to have_selector 'div label', text: '投稿名'
       expect(page).to have_selector 'div label', text: '投稿ファイル'
       expect(page).to have_selector 'div label', text: '投稿へのコメント'
       find_button '更新する'
     end
-    
   end
 end

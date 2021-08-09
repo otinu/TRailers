@@ -7,10 +7,10 @@ describe "jQueryのテスト" do
   let!(:post) { FactoryBot.build(:post) }
 
   before do
-    sign_up_as(user)  # SignupSupportモジュールから呼び出し
+    sign_up_as(user) # SignupSupportモジュールから呼び出し
   end
 
-  it "ヘッダーの確認" , type: :system do
+  it "ヘッダーの確認", type: :system do
     find('.navbar-toggler').click
     find(".fa-signs-post")
     find(".fa-user-pilot")
@@ -21,6 +21,7 @@ describe "jQueryのテスト" do
 
   it "投稿詳細画面", type: :system do
     new_post(post)
+    sleep 1
     find(".fa-magnifying-glass").click
     page.evaluate_script('$(".fa-magnifying-glass").removeClass("fa-solid fa-magnifying-glass fa-2x ml-5 enlarge-it")')
     find(".fa-magnifying-glass").click
@@ -34,5 +35,4 @@ describe "jQueryのテスト" do
     find(".fa-eye-slash").hover
     expect(page).to have_content "みんなのGoods数を非表示にします"
   end
-
 end

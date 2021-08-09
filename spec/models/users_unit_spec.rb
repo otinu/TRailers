@@ -4,11 +4,11 @@ describe 'Userモデルのテスト', type: :model do
   before do
     @user = FactoryBot.build(:user, :first)
   end
-  
-    it "有効なユーザー情報の場合は保存されるか" do
-      expect(@user).to be_valid
-    end
-    
+
+  it "有効なユーザー情報の場合は保存されるか" do
+    expect(@user).to be_valid
+  end
+
   context "入力のテスト" do
     it "名前が21文字以上のユーザー情報は保存されないか" do
       @user.name = Faker::Lorem.characters(number: 21)
@@ -46,7 +46,7 @@ describe 'Userモデルのテスト', type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("プロフィール画像はJPEG、GIF、PNG画像のいずれかでお選びください")
     end
-    
+
     it "JPEG,GIF,PNG以外の投稿は保存されないか" do
       @user.profile_image = fixture_file_upload("/test.css")
       @user.valid?
