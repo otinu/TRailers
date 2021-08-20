@@ -13,7 +13,7 @@ class Chat < ApplicationRecord
     user = User.find(companion)
     temp = Notification.where(visiter_id: current_user, visited_id: companion, action: "Chat")
     if temp.blank?
-      user.passive_notifications.create(visiter_id: current_user, action: "Chat")
+      user.passive_notifications.create(visiter_id: current_user, post_id: 1, action: "Chat")
     end
   end
 end

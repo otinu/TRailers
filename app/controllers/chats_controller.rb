@@ -19,7 +19,7 @@ class ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     unless @chat.save
-      @chat.message = "1～50文字！" if cookies[:locale] == "ja"
+      @chat.message = "1～50文字！" if cookies[:locale] == "ja" || cookies[:locale] == nil
       @chat.message = "1～50Characters！" if cookies[:locale] == "en"
     end
     # 通知の作成

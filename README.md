@@ -129,7 +129,7 @@ TRailersはTwitterやFacebookといった**SNSよりも軽いコミュニケー�
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
-- IDE：AWS Cloud9, Visual Studio Code
+- IDE：AWS Cloud9
 - CI/CDツール： GitHub Actions
 - パッケージ依存関係 自動監視： GitHub Dependabot
 - TLS証明発行元： Let's Encrypt(Certbot 使用)
@@ -143,6 +143,6 @@ TRailersはTwitterやFacebookといった**SNSよりも軽いコミュニケー�
 
 ## サイトURL
 
-http://trailers.work
+https://trailers.work
 
 

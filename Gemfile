@@ -56,6 +56,7 @@ group :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'erb_lint', require: false
+  gem 'selenium-webdriver'
 end
 
 group :production do
