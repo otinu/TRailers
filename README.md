@@ -119,6 +119,8 @@ TRailersはTwitterやFacebookといった**SNSよりも軽いコミュニケー�
 
 - [テスト項目](https://docs.google.com/document/d/1OuDSHP32JiRupKy1LJROuiXh4ZlZJPX4iWhiJa1WlF8/edit?usp=sharing)
 
+- [AWS構成図](https://drive.google.com/file/d/1E5ITX405RFtaSAetsZ16A6PzLm-kkce0/view?usp=sharing)
+
 ## チャレンジ要素一覧
 
 <https://docs.google.com/spreadsheets/d/1LU4F-JmB1PNmmcD-8zvwlHQIbHdybHoZtaNfvOasu7E/edit?usp=sharing>
@@ -139,10 +141,5 @@ TRailersはTwitterやFacebookといった**SNSよりも軽いコミュニケー�
 　　アプリケーションサーバー: Puma<br>
 　**RDS**<br>
  　　RDS for MySQL<br>
- 
-
-## サイトURL
-
-https://trailers.work
 
 
