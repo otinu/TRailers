@@ -36,3 +36,5 @@
 #bundleによりファイル生成は各環境毎に行う
 vendor/*
 vendor/
+
+.c9/*
