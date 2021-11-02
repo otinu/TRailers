@@ -34,16 +34,16 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
   end
 
   create_table "chats", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "goods", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
   create_table "notifications", force: :cascade do |t|
     t.integer "visiter_id", null: false
     t.integer "visited_id", null: false
-    t.integer "post_id"
+    t.bigint "post_id", null: false
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "title", null: false
     t.text "explanation", null: false
     t.datetime "created_at", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
   create_table "sns_credentials", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,8 +110,8 @@ ActiveRecord::Schema.define(version: 2021_06_10_080507) do
   end
 
   create_table "user_rooms", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
