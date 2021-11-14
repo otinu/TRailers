@@ -157,10 +157,10 @@ GEM
       activesupport (>= 4.2.0)
     hashie (4.1.0)
     html_tokenizer (0.0.7)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
-    jbuilder (2.11.2)
+    jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
     jquery-rails (4.4.0)
@@ -408,7 +408,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.13)
-  jbuilder (~> 2.5)
+  jbuilder (~> 2.11)
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.8)
